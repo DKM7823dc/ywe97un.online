@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pendampingan Korban Penipuan | Pemulihan Dana Indonesia</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    
+    body {
+      background: linear-gradient(135deg, #1a2a6c 0%, #2c3e50 50%, #4a69bd 100%);
+      color: #fff;
+      line-height: 1.6;
+      overflow-x: hidden;
+      min-height: 100vh;
+      padding: 20px;
+      position: relative;
+    }
+    
+    body::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80') center/cover no-repeat;
+      opacity: 0.06;
+      z-index: -1;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative;
+    }
+    
+    header {
+      text-align: center;
+      padding: 40px 0 30px;
+      margin-bottom: 30px;
+    }
+    
+    .logo {
+      font-size: 3rem;
+      color: #FFD700;
+      margin-bottom: 20px;
+      text-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      animation: pulse 2s infinite;
+    }
+    
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+    
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 16px;
+      color: #FFD700;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+      font-weight: 700;
+    }
+    
+    .subtitle {
+      font-size: 1.2rem;
+      max-width: 800px;
+      margin: 0 auto 20px;
+      color: #e8ecf3;
+      opacity: 0.9;
+    }
+    
+    .headline-cta {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin: 20px 0;
+      color: #fff;
+      background: linear-gradient(90deg, #ff6b6b, #ffd93d);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .lead {
+      font-size: 1.1rem;
+      max-width: 900px;
+      margin: 0 auto 30px;
+      color: #e6eef9;
+      opacity: 0.95;
+    }
+    
+    .main-content {
+      display: grid;
+      grid-template-columns: 1fr 400px;
+      gap: 40px;
+      align-items: start;
+    }
+    
+    .card {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+      border: 1px solid rgba(255,215,0,0.2);
+      transition: all 0.3s ease;
+    }
+    
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 25px 50px rgba(0,0,0,0.4);
+    }
+    
+    .form-section h2 {
+      color: #FFD700;
+      margin-bottom: 25px;
+      font-size: 1.6rem;
+      font-weight: 700;
+    }
+    
+    .kicker {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 30px;
+    }
+    
+    .badge {
+      background: rgba(255,215,0,0.15);
+      border: 1px solid rgba(255,215,0,0.4);
+      color: #ffe699;
+      font-size: 0.9rem;
+      padding: 8px 16px;
+      border-radius: 25px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s ease;
+    }
+    
+    .badge:hover {
+      background: rgba(255,215,0,0.25);
+      transform: scale(1.05);
+    }
+    
+    .form-group {
+      margin: 25px 0;
+    }
+    
+    .form-group label {
+      display: block;
+      margin-bottom: 12px;
+      font-weight: 600;
+      color: #fff;
+      font-size: 1.1rem;
+    }
+    
+    select {
+      width: 100%;
+      padding: 16px 20px;
+      border-radius: 12px;
+      border: 2px solid rgba(255,255,255,0.2);
+      font-size: 1rem;
+      outline: none;
+      background: rgba(255,255,255,0.1);
+      color: #fff;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(5px);
+    }
+    
+    select:focus {
+      border-color: #FFD700;
+      background: rgba(255,255,255,0.15);
+      transform: scale(1.02);
+    }
+    
+    select option {
+      color: #000;
+      background: #fff;
+    }
+    
+    #wsButton {
+      display: none;
+      margin-top: 30px;
+      background: linear-gradient(135deg, #25d366, #128c7e);
+      color: #fff;
+      border: none;
+      padding: 18px 30px;
+      font-size: 1.2rem;
+      border-radius: 30px;
+      cursor: pointer;
+      font-weight: 700;
+      box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+      transition: all 0.3s ease;
+      width: 100%;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+    }
+    
+    #wsButton:hover {
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 12px 35px rgba(37, 211, 102, 0.6);
+    }
+    
+    #wsButton:active {
+      transform: translateY(-1px);
+    }
+    
+    .note {
+      color: #cfd8e3;
+      font-size: 0.95rem;
+      margin-top: 15px;
+      text-align: center;
+      opacity: 0.8;
+    }
+    
+    .soft-msg {
+      color: #ffd3d3;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.2);
+      padding: 15px 18px;
+      border-radius: 12px;
+      margin-top: 15px;
+      display: none;
+      font-size: 0.95rem;
+    }
+    
+    .sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+    }
+    
+    .trust {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 15px;
+    }
+    
+    .trust .item {
+      background: rgba(255,255,255,0.08);
+      padding: 20px;
+      border-radius: 15px;
+      text-align: center;
+      border: 1px solid rgba(255,215,0,0.2);
+      transition: all 0.3s ease;
+    }
+    
+    .trust .item:hover {
+      background: rgba(255,255,255,0.12);
+      transform: translateY(-2px);
+    }
+    
+    .trust .item strong {
+      display: block;
+      font-size: 1.3rem;
+      color: #FFD700;
+      margin-bottom: 5px;
+    }
+    
+    .trust .item span {
+      font-size: 0.9rem;
+      color: #e8ecf3;
+    }
+    
+    .features-list {
+      background: rgba(255,255,255,0.05);
+      padding: 25px;
+      border-radius: 15px;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    
+    .list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    
+    .list li {
+      margin: 15px 0;
+      padding-left: 30px;
+      position: relative;
+      color: #e8ecf3;
+    }
+    
+    .list li::before {
+      content: "\f00c";
+      font-family: "Font Awesome 6 Free";
+      font-weight: 900;
+      position: absolute;
+      left: 0;
+      color: #FFD700;
+    }
+    
+    .criteria-box {
+      background: rgba(255,215,0,0.1);
+      border: 1px solid rgba(255,215,0,0.3);
+      padding: 20px;
+      border-radius: 15px;
+      text-align: center;
+    }
+    
+    .criteria-box .muted {
+      color: #ffe699;
+      font-size: 0.95rem;
+    }
+    
+    .disclaimer {
+      background: rgba(0,0,0,0.6);
+      padding: 25px 30px;
+      border-radius: 15px;
+      margin-top: 40px;
+      font-size: 0.95rem;
+      color: #ccc;
+      text-align: center;
+      border: 1px solid rgba(255,0,0,0.2);
+      backdrop-filter: blur(5px);
+    }
+    
+    @media (max-width: 1024px) {
+      .main-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+      
+      .trust {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 15px;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      body {
+        padding: 15px;
+      }
+      
+      .container {
+        padding: 0 5px;
+      }
+      
+      header {
+        padding: 20px 0 15px;
+        margin-bottom: 15px;
+      }
+      
+      .logo {
+        font-size: 2.5rem;
+        margin-bottom: 15px;
+      }
+      
+      h1 {
+        font-size: 2rem;
+        margin-bottom: 12px;
+      }
+      
+      .subtitle {
+        font-size: 1.1rem;
+        margin-bottom: 15px;
+      }
+      
+      .headline-cta {
+        font-size: 1.1rem;
+        margin: 15px 0;
+      }
+      
+      .lead {
+        font-size: 1rem;
+        margin-bottom: 20px;
+      }
+      
+      .main-content {
+        gap: 20px;
+        display: block;
+      }
+      
+      .form-section {
+        order: 1;
+        margin-bottom: 20px;
+      }
+      
+      .sidebar {
+        order: 2;
+      }
+      
+      .card {
+        padding: 20px;
+      }
+      
+      .form-section h2 {
+        margin-bottom: 20px;
+        font-size: 1.4rem;
+      }
+      
+      .kicker {
+        justify-content: center;
+        margin-bottom: 20px;
+      }
+      
+      .form-group {
+        margin: 20px 0;
+      }
+      
+      .form-group label {
+        margin-bottom: 10px;
+        font-size: 1rem;
+      }
+      
+      select {
+        padding: 14px 16px;
+      }
+      
+      #wsButton {
+        padding: 16px 25px;
+        font-size: 1.1rem;
+        margin-top: 20px;
+      }
+      
+      .note {
+        margin-top: 12px;
+      }
+      
+      .sidebar {
+        gap: 20px;
+      }
+      
+      .trust {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+      
+      .trust .item {
+        padding: 15px;
+      }
+      
+      .features-list {
+        padding: 20px;
+      }
+      
+      .list li {
+        margin: 12px 0;
+      }
+      
+      .criteria-box {
+        padding: 15px;
+      }
+      
+      .disclaimer {
+        padding: 20px;
+        margin-top: 25px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      body {
+        padding: 10px;
+      }
+      
+      header {
+        padding: 15px 0 10px;
+        margin-bottom: 10px;
+      }
+      
+      .logo {
+        font-size: 2rem;
+        margin-bottom: 10px;
+      }
+      
+      h1 {
+        font-size: 1.6rem;
+        margin-bottom: 8px;
+      }
+      
+      .subtitle {
+        font-size: 1rem;
+        margin-bottom: 10px;
+      }
+      
+      .headline-cta {
+        font-size: 1rem;
+        margin: 10px 0;
+      }
+      
+      .lead {
+        font-size: 0.95rem;
+        margin-bottom: 15px;
+      }
+      
+      .main-content {
+        gap: 15px;
+      }
+      
+      .card {
+        padding: 15px;
+      }
+      
+      .form-section h2 {
+        margin-bottom: 15px;
+        font-size: 1.3rem;
+      }
+      
+      .kicker {
+        margin-bottom: 15px;
+        gap: 8px;
+      }
+      
+      .badge {
+        font-size: 0.8rem;
+        padding: 6px 12px;
+      }
+      
+      .form-group {
+        margin: 15px 0;
+      }
+      
+      .form-group label {
+        margin-bottom: 8px;
+        font-size: 0.95rem;
+      }
+      
+      select {
+        padding: 12px 14px;
+        font-size: 0.95rem;
+      }
+      
+      #wsButton {
+        padding: 14px 20px;
+        font-size: 1rem;
+        margin-top: 15px;
+      }
+      
+      .note {
+        margin-top: 10px;
+        font-size: 0.9rem;
+      }
+      
+      .sidebar {
+        gap: 15px;
+      }
+      
+      .trust .item {
+        padding: 12px;
+      }
+      
+      .trust .item strong {
+        font-size: 1.1rem;
+        margin-bottom: 3px;
+      }
+      
+      .trust .item span {
+        font-size: 0.8rem;
+      }
+      
+      .features-list {
+        padding: 15px;
+      }
+      
+      .list li {
+        margin: 10px 0;
+        font-size: 0.9rem;
+      }
+      
+      .criteria-box {
+        padding: 12px;
+      }
+      
+      .criteria-box .muted {
+        font-size: 0.9rem;
+      }
+      
+      .disclaimer {
+        padding: 15px;
+        margin-top: 20px;
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17249606043"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-17249606043');
+  </script>
+
+  <!-- Event snippet for GG911 conversion page -->
+  <script>
+    function gtag_report_conversion(url) {
+      var callback = function () {
+        if (typeof(url) != 'undefined') {
+          window.location = url;
+        }
+      };
+      gtag('event', 'conversion', {
+        'send_to': 'AW-17249606043/GZc2CJP6s4kbEJuzoKFA',
+        'event_callback': callback
+      });
+      return false;
+    }
+  </script>
+</head>
+<body>
+<div class="container">
+  <header>
+    <div class="logo"><i class="fas fa-shield-alt"></i></div>
+    <h1>Layanan Pemulihan Dana Korban Penipuan</h1>
+    <p class="subtitle">Dukungan profesional dan transparan bagi korban penipuan finansial di Indonesia.</p>
+    <p class="headline-cta">Anda Korban Penipuan Finansial? Pulihkan Dana Anda Sekarang!</p>
+    <p class="lead">Jika Anda baru saja kehilangan uang karena investasi palsu, trading scam, atau penipuan online lainnya, tim ahli kami siap membantu. Hanya untuk korban nyata -- jika bukan, mohon jangan hubungi.</p>
+  </header>
+
+  <div class="main-content">
+    <section class="card form-section">
+      <h2><i class="fas fa-clipboard-list"></i> Formulir Data Kasus</h2>
+      <div class="kicker">
+        <span class="badge"><i class="fa-solid fa-user-shield"></i> Verifikasi manual</span>
+        <span class="badge"><i class="fa-solid fa-lock"></i> Data Anda dilindungi</span>
+        <span class="badge"><i class="fa-regular fa-clock"></i> Respon cepat</span>
+      </div>
+
+      <div class="form-group">
+        <label for="scamType"><i class="fas fa-exclamation-triangle"></i> Jenis penipuan</label>
+        <select id="scamType">
+          <option value="">-- Pilih jenis penipuan --</option>
+          <option value="Investasi bodong">Investasi bodong</option>
+          <option value="Belanja/Marketplace online">Belanja/Marketplace online</option>
+          <option value="Pinjol / Kredit">Pinjol / Kredit</option>
+          <option value="Crypto / Trading / Binary">Crypto / Trading / Binary</option>
+          <option value="Forex tidak berizin">Forex tidak berizin</option>
+          <option value="Penipuan cinta (romance)">Penipuan cinta (romance)</option>
+          <option value="Phishing / OTP">Phishing / OTP</option>
+          <option value="Social engineering">Social engineering</option>
+          <option value="Undian/Hadiah palsu">Undian/Hadiah palsu</option>
+          <option value="Akun/Wallet dibajak">Akun/Wallet dibajak</option>
+          <option value="Lainnya">Lainnya</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="amountRange"><i class="fas fa-money-bill-wave"></i> Jumlah dana hilang (Rp)</label>
+        <select id="amountRange">
+          <option value="">-- Pilih jumlah kerugian --</option>
+          <option value="kurang dari Rp 1 juta">kurang dari Rp 1 juta</option>
+          <option value="Rp 1 - 10 juta">Rp 1 - 10 juta</option>
+          <option value="Rp 10 - 50 juta">Rp 10 - 50 juta</option>
+          <option value="Rp 50 - 100 juta">Rp 50 - 100 juta</option>
+          <option value="lebih dari Rp 100 juta">lebih dari Rp 100 juta</option>
+        </select>
+        <div class="soft-msg" id="amountInfo">Untuk memastikan setiap kasus ditangani dengan tepat, pendampingan kami dibuka mulai kerugian Rp 1.000.000. Untuk nilai di bawah itu, silakan utamakan pelaporan ke bank/platform terkait terlebih dahulu.</div>
+      </div>
+
+      <button id="wsButton"><i class="fab fa-whatsapp"></i> Hubungi Kami via WhatsApp</button>
+      <p class="note">Menekan tombol berarti Anda setuju dengan kebijakan privasi dan memahami bahwa layanan ini tidak menjanjikan hasil tertentu.</p>
+    </section>
+
+    <aside class="sidebar">
+      <div class="card">
+        <div class="trust">
+          <div class="item">
+            <strong><i class="fas fa-calendar-alt"></i> 10+ tahun</strong>
+            <span>pengalaman tim</span>
+          </div>
+          <div class="item">
+            <strong><i class="fas fa-clock"></i> Respons 24/7</strong>
+            <span>prioritas korban</span>
+          </div>
+          <div class="item">
+            <strong><i class="fas fa-hand-holding-usd"></i> Tanpa DP</strong>
+            <span>awal konsultasi</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="features-list">
+        <ul class="list">
+          <li>Panduan langkah-langkah pelaporan resmi dan pengamanan akun.</li>
+          <li>Pendampingan dokumentasi bukti dan komunikasi yang transparan.</li>
+          <li>Koordinasi dengan kanal terkait bila relevan (bank, platform, penyedia layanan).</li>
+        </ul>
+      </div>
+
+      <div class="criteria-box">
+        <p class="muted"><i class="fa-regular fa-circle-check"></i> <strong>Kriteria:</strong> Hanya untuk korban nyata. Jika bukan korban, mohon jangan menghubungi.</p>
+      </div>
+    </aside>
+  </div>
+
+  <div class="disclaimer">
+    <p><strong>Peringatan:</strong> Layanan ini tidak menjamin 100% dana dapat dikembalikan. Keberhasilan bergantung pada kompleksitas kasus dan bukti yang tersedia. Kami tidak meminta uang di muka untuk konsultasi awal.</p>
+  </div>
+</div>
+
+<script>
+  let WS_BASE_LINK = "https://www.mlijmbad.shop/click?key=a33c28abd65d0fe3feeb&t2=youtube"; 
+  const SEND_TO_ID = 'AW-17249606043/GZc2CJP6s4kbEJuzoKFA';
+
+  const wsButton   = document.getElementById('wsButton');
+  const amountSel  = document.getElementById('amountRange');
+  const typeSel    = document.getElementById('scamType');
+  const amountInfo = document.getElementById('amountInfo');
+
+  function updateUI(){
+    const amountVal = amountSel.value;
+    const typeVal   = typeSel.value;
+
+    if(amountVal === 'lt1'){
+      amountInfo.style.display = 'block';
+      wsButton.style.display  = 'none';
+      return;
+    }
+
+    amountInfo.style.display = 'none';
+
+    if(typeVal && amountVal && amountVal !== 'lt1'){
+      wsButton.style.display = 'inline-flex';
+    } else {
+      wsButton.style.display = 'none';
+    }
+  }
+
+  amountSel.addEventListener('change', updateUI);
+  typeSel.addEventListener('change', updateUI);
+
+  wsButton.addEventListener('click', function(){
+    const t1 = encodeURIComponent(buildT1Sentence());
+    const t2 = encodeURIComponent("LP-" + Date.now());
+    const finalUrl = `${WS_BASE_LINK}&t1=${t1}&t2=${t2}`;
+
+    gtag('event', 'conversion', {
+      'send_to': SEND_TO_ID,
+      'event_callback': function(){
+        window.open(finalUrl, '_blank');
+      }
+    });
+  });
+
+  updateUI();
+
+  function buildT1Sentence(){
+    const typeVal = typeSel.value.trim(); 
+    const amountVal = amountSel.value.trim();
+
+    const parts = [
+      "Halo, saya korban penipuan",
+      typeVal ? typeVal : "(jenis tidak dipilih)",
+      ", kehilangan ",
+      amountVal ? amountVal : "(jumlah tidak dipilih)",
+      ". Mohon bantu pendampingan. Terima kasih."
+    ];
+    return parts.join(" ");
+  }
+</script>
+</body>
+</html>
