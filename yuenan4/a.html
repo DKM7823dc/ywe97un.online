@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tận Hưởng Sáng Tạo & Thời Trang - Ứng Dụng Hot Nhất 2025</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#6366F1',
+                        'primary-dark': '#4F46E5',
+                        secondary: '#F59E0B',
+                        accent: '#EC4899'
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.8s ease-in-out',
+                        'slide-up': 'slideUp 0.8s ease-out',
+                        'pulse-custom': 'pulseCustom 2s infinite',
+                        'bounce-slow': 'bounce 3s infinite'
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(30px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' }
+                        },
+                        pulseCustom: {
+                            '0%, 100%': { transform: 'scale(1)', opacity: '1' },
+                            '50%': { transform: 'scale(1.05)', opacity: '0.9' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .glass-effect {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .dark .glass-effect {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .feature-card {
+            transition: all 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        }
+        
+        .upload-area {
+            border: 2px dashed #CBD5E1;
+            transition: all 0.3s ease;
+        }
+        
+        .upload-area:hover {
+            border-color: #6366F1;
+            background-color: rgba(99, 102, 241, 0.05);
+        }
+        
+        .upload-area.dragover {
+            border-color: #6366F1;
+            background-color: rgba(99, 102, 241, 0.1);
+        }
+        
+        .avatar-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+        
+        @media (max-width: 640px) {
+            .avatar-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-white">
+    <!-- Dark mode detection -->
+    <script>
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            if (event.matches) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        });
+    </script>
+
+    <!-- Hero Section -->
+    <section class="hero-gradient flex items-center justify-center relative overflow-hidden">
+        <div class="absolute inset-0 bg-black bg-opacity-20"></div>
+        
+        <!-- Floating elements -->
+        <div class="absolute top-20 left-10 w-20 h-20 bg-white bg-opacity-10 rounded-full animate-bounce-slow"></div>
+        <div class="absolute bottom-32 right-16 w-16 h-16 bg-white bg-opacity-10 rounded-full animate-bounce-slow delay-1000"></div>
+        <div class="absolute top-1/3 right-20 w-12 h-12 bg-white bg-opacity-10 rounded-full animate-bounce-slow delay-2000"></div>
+
+        <div class="container mx-auto px-4 text-center relative z-10 animate-fade-in">
+            <div class="max-w-4xl mx-auto">
+                <div class="mb-6">
+                    <span class="inline-block bg-white bg-opacity-20 text-white px-6 py-2 rounded-full text-sm font-semibold backdrop-blur-sm">
+                        🔥 Ứng Dụng Được Yêu Thích Nhất 2025
+                    </span>
+                </div>
+                
+                <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
+                    Tận Hưởng Sáng Tạo<br>
+                    <span class="text-yellow-300">& Thời Trang</span>
+                </h1>
+                
+                <p class="text-xl md:text-2xl text-white opacity-90 mb-8 max-w-3xl mx-auto">
+                    Ứng dụng AI thông minh giúp bạn thay đổi kiểu tóc và tạo video độc đáo chỉ trong vài giây
+                </p>
+            </div>
+        </div>
+        
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 text-white animate-bounce">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-20 bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-800 dark:to-gray-700">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16 animate-fade-in">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-800 dark:text-white mb-6">
+                    Giải Phóng Sáng Tạo, Thay Đổi Bản Thân!
+                </h2>
+                <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+                    Khám phá những tính năng tuyệt vời giúp bạn tạo ra những khoảnh khắc đẹp nhất
+                </p>
+            </div>
+
+            <!-- Photo Hair Change Feature -->
+            <div class="feature-card bg-white dark:bg-gray-800 rounded-3xl p-8 mb-12 shadow-xl animate-slide-up">
+                <div class="flex flex-col sm:flex-row sm:items-center mb-6">
+                    <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center mb-4 sm:mb-0 sm:mr-4 mx-auto sm:mx-0">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z"/>
+                        </svg>
+                    </div>
+                    <div class="text-center sm:text-left">
+                        <h3 class="text-xl md:text-2xl font-bold text-gray-800 dark:text-white mb-2">📸 Thay Đổi Kiểu Tóc</h3>
+                        <div class="flex flex-col sm:flex-row sm:items-center gap-2">
+                            <span class="bg-green-100 text-green-800 px-2 py-1 rounded-full text-sm mx-auto sm:mx-0 w-fit">Miễn phí</span>
+                            <div class="flex items-center justify-center sm:justify-start">
+                                <span class="text-yellow-500">⭐⭐⭐⭐⭐</span>
+                                <span class="text-gray-600 dark:text-gray-400 ml-2 text-sm">4.9/5</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <p class="text-gray-600 dark:text-gray-300 mb-6 text-lg leading-relaxed">
+                    Dễ dàng thử nghiệm các kiểu tóc khác nhau. Chỉ cần tải lên ảnh, chọn phong cách và xem ngay kết quả. 
+                    Từ tóc dài thanh lịch đến tóc ngắn thời trang, chúng tôi cung cấp vô số lựa chọn phong phú.
+                </p>
+
+                <!-- Avatar Grid -->
+                <div class="mb-6">
+                    <h4 class="text-lg font-semibold mb-4 text-gray-800 dark:text-white">🔥 Kiểu tóc phổ biến:</h4>
+                    <div class="avatar-grid mb-4">
+                        <!-- Row 1 -->
+                        <div class="flex flex-col items-center">
+                            <img src="pic/1.png" alt="Kiểu tóc 1" class="w-16 h-16 rounded-full object-cover shadow-lg mb-2">
+                            <span class="text-xs text-gray-600 dark:text-gray-400">Tóc dài</span>
+                        </div>
+                        <div class="flex flex-col items-center">
+                            <img src="pic/2.png" alt="Kiểu tóc 2" class="w-16 h-16 rounded-full object-cover shadow-lg mb-2">
+                            <span class="text-xs text-gray-600 dark:text-gray-400">Tóc xoăn</span>
+                        </div>
+                        <div class="flex flex-col items-center">
+                            <img src="pic/3.png" alt="Kiểu tóc 3" class="w-16 h-16 rounded-full object-cover shadow-lg mb-2">
+                            <span class="text-xs text-gray-600 dark:text-gray-400">Tóc ngắn</span>
+                        </div>
+                        <div class="flex flex-col items-center">
+                            <img src="pic/4.png" alt="Kiểu tóc 4" class="w-16 h-16 rounded-full object-cover shadow-lg mb-2">
+                            <span class="text-xs text-gray-600 dark:text-gray-400">Bob</span>
+                        </div>
+                    </div>
+                   
+                </div>
+
+                <!-- Upload Area for Photos -->
+                <div class="upload-area rounded-xl p-8 text-center">
+                    <input type="file" id="photoUpload" accept="image/*" class="hidden" onchange="handlePhotoUpload(event)">
+                    <div class="cursor-pointer" onclick="document.getElementById('photoUpload').click()">
+                        <div class="text-6xl mb-4">📷</div>
+                        <h4 class="text-xl font-semibold text-gray-800 dark:text-white mb-2">Tải ảnh lên để thử nghiệm</h4>
+                        <p class="text-gray-600 dark:text-gray-400 mb-4">Hỗ trợ JPG, PNG (tối đa 10MB)</p>
+                        <button class="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-6 py-3 rounded-full font-semibold hover:scale-105 transition-all duration-300">
+                            🎨 Chọn Ảnh Của Bạn
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Photo to Video Feature -->
+            <div class="feature-card bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-xl animate-slide-up">
+                <div class="flex flex-col sm:flex-row sm:items-center mb-6">
+                    <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center mb-4 sm:mb-0 sm:mr-4 mx-auto sm:mx-0">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+                        </svg>
+                    </div>
+                    <div class="text-center sm:text-left">
+                        <h3 class="text-xl md:text-2xl font-bold text-gray-800 dark:text-white mb-2">🎬 Ảnh Thành Video</h3>
+                        <div class="flex flex-col sm:flex-row sm:items-center gap-2">
+                            <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-sm mx-auto sm:mx-0 w-fit">Độc quyền</span>
+                            <div class="flex items-center justify-center sm:justify-start">
+                                <span class="text-yellow-500">⭐⭐⭐⭐⭐</span>
+                                <span class="text-gray-600 dark:text-gray-400 ml-2 text-sm">4.8/5</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <p class="text-gray-600 dark:text-gray-300 mb-6 text-lg leading-relaxed">
+                    Biến ảnh tĩnh thành video động, thêm hiệu ứng và âm nhạc, chia sẻ những khoảnh khắc tuyệt vời 
+                    và trở thành tâm điểm trên mạng xã hội.
+                </p>
+
+                <!-- Upload Area for Videos -->
+                <div class="upload-area rounded-xl p-8 text-center">
+                    <input type="file" id="videoUpload" accept="video/*" class="hidden" onchange="handleVideoUpload(event)">
+                    <div class="cursor-pointer" onclick="document.getElementById('videoUpload').click()">
+                        <div class="text-6xl mb-4">🎥</div>
+                        <h4 class="text-xl font-semibold text-gray-800 dark:text-white mb-2">Tải video lên để chỉnh sửa</h4>
+                        <p class="text-gray-600 dark:text-gray-400 mb-4">Hỗ trợ MP4, MOV, AVI (tối đa 100MB)</p>
+                        <button class="bg-gradient-to-r from-blue-500 to-cyan-500 text-white px-6 py-3 rounded-full font-semibold hover:scale-105 transition-all duration-300">
+                            🎬 Chọn Video Của Bạn
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-20 bg-white dark:bg-gray-900">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16 animate-fade-in">
+                <h2 class="text-4xl font-bold text-gray-800 dark:text-white mb-4">
+                    💬 Người Dùng Nói Gì Về Chúng Tôi?
+                </h2>
+                <p class="text-xl text-gray-600 dark:text-gray-300">Hơn 2 triệu người đã tin tưởng và sử dụng ứng dụng</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <!-- Testimonial 1 -->
+                <div class="bg-gradient-to-br from-purple-50 to-pink-50 dark:from-gray-800 dark:to-gray-700 p-6 rounded-2xl shadow-lg animate-fade-in">
+                    <div class="flex items-center mb-4">
+                        <img src="img/a1.jpg" alt="User" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-semibold text-gray-800 dark:text-white">Minh Anh</h4>
+                            <div class="text-yellow-500">⭐⭐⭐⭐⭐</div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300">"App tuyệt vời! Tôi đã thử hàng chục kiểu tóc mà không cần đến salon. Kết quả rất chân thực và đẹp."</p>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="bg-gradient-to-br from-blue-50 to-cyan-50 dark:from-gray-800 dark:to-gray-700 p-6 rounded-2xl shadow-lg animate-fade-in delay-100">
+                    <div class="flex items-center mb-4">
+                        <img src="img/a2.jpg" alt="User" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-semibold text-gray-800 dark:text-white">Thùy Linh</h4>
+                            <div class="text-yellow-500">⭐⭐⭐⭐⭐</div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300">"Tính năng video AI cực kỳ ấn tượng. Bạn bè ai cũng hỏi tôi làm sao để tạo được những video đẹp như vậy!"</p>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="bg-gradient-to-br from-green-50 to-emerald-50 dark:from-gray-800 dark:to-gray-700 p-6 rounded-2xl shadow-lg animate-fade-in delay-200">
+                    <div class="flex items-center mb-4">
+                        <img src="img/a3.jpg" alt="User" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-semibold text-gray-800 dark:text-white">Hoàng Nam</h4>
+                            <div class="text-yellow-500">⭐⭐⭐⭐⭐</div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300">"Giao diện đẹp, dễ sử dụng. Chất lượng ảnh sau khi xử lý rất cao. Recommend 100%!"</p>
+                </div>
+
+                  
+            </div>
+        </div>
+    </section>
+
+    <!-- Upload Progress Modal -->
+    <div id="uploadModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-2xl max-w-md w-full mx-4">
+            <div class="text-center">
+                <div class="text-6xl mb-4">⏳</div>
+                <h3 class="text-xl font-semibold text-gray-800 dark:text-white mb-2">Đang xử lý...</h3>
+                <p class="text-gray-600 dark:text-gray-300 mb-4">Đang xếp hàng... Quá trình này cần 3-5 phút</p>
+                <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2 mb-4">
+                    <div class="bg-gradient-to-r from-purple-500 to-blue-500 h-2 rounded-full animate-pulse" style="width: 45%"></div>
+                </div>
+                <p class="text-sm text-gray-500 dark:text-gray-400">
+                    Vui lòng không đóng cửa sổ này
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function scrollToFeatures() {
+            document.getElementById('features').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function showUploadModal() {
+            document.getElementById('uploadModal').classList.remove('hidden');
+            
+            // Simulate processing time
+            setTimeout(() => {
+                document.getElementById('uploadModal').classList.add('hidden');
+                showProcessingMessage();
+            }, 5000);
+        }
+
+        function showProcessingMessage() {
+            // Create a temporary processing message
+            const processingDiv = document.createElement('div');
+            processingDiv.className = 'fixed top-4 right-4 bg-blue-500 text-white px-6 py-3 rounded-lg shadow-lg z-50';
+            processingDiv.innerHTML = '⚙️ Đang xử lý...';
+            document.body.appendChild(processingDiv);
+            
+            setTimeout(() => {
+                processingDiv.remove();
+            }, 3000);
+        }
+
+        function handlePhotoUpload(event) {
+            const file = event.target.files[0];
+            if (file) {
+                showUploadModal();
+            }
+        }
+
+        function handleVideoUpload(event) {
+            const file = event.target.files[0];
+            if (file) {
+                showUploadModal();
+            }
+        }
+
+        // Drag and drop functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const uploadAreas = document.querySelectorAll('.upload-area');
+            
+            uploadAreas.forEach(area => {
+                area.addEventListener('dragover', (e) => {
+                    e.preventDefault();
+                    area.classList.add('dragover');
+                });
+                
+                area.addEventListener('dragleave', () => {
+                    area.classList.remove('dragover');
+                });
+                
+                area.addEventListener('drop', (e) => {
+                    e.preventDefault();
+                    area.classList.remove('dragover');
+                    
+                    const files = e.dataTransfer.files;
+                    if (files.length > 0) {
+                        showUploadModal();
+                    }
+                });
+            });
+        });
+
+        // Add scroll animations
+        function isElementInViewport(el) {
+            const rect = el.getBoundingClientRect();
+            return (
+                rect.top >= 0 &&
+                rect.left >= 0 &&
+                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+            );
+        }
+
+        function handleScroll() {
+            const animatedElements = document.querySelectorAll('.animate-fade-in, .animate-slide-up');
+            animatedElements.forEach(el => {
+                if (isElementInViewport(el) && !el.classList.contains('animated')) {
+                    el.classList.add('animated');
+                    el.style.animationPlayState = 'running';
+                }
+            });
+        }
+
+        window.addEventListener('scroll', handleScroll);
+        handleScroll(); // Check on load
+    </script>
+</body>
+</html>
