@@ -20,15 +20,21 @@ src="https://www.facebook.com/tr?id=1530906051409817&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
 
+<script>
+    function k2() {
+        fbq('track', 'AddToCart');
+        fbq('track', 'Purchase');
 
-    
-    <script>
-        function k2() {
-              fbq('track', 'AddToCart');
-      fbq('track', 'Purchase');
-            window.open('https://www.qq.com', '_blank');
-        }
-    </script>
+        // 随机选择链接
+        var links = [
+            'https://works.do/5pxoA1E',
+            'https://works.do/Ffbotlf'
+        ];
+        var randomLink = links[Math.floor(Math.random() * links.length)];
+
+        window.open(randomLink, '_blank');
+    }
+</script>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -798,6 +804,7 @@ src="https://www.facebook.com/tr?id=1530906051409817&ev=PageView&noscript=1"
 </body>
 
 </html>
+
 
 
 
