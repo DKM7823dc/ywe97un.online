@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="pt" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curso Gratuito de Investimentos - Aprenda com o Especialista</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#00D4FF',
+                        accent: '#FFD700',
+                        dark: '#000000'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background: #000000;
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #000000 0%, #1a1a1a 50%, #000000 100%);
+        }
+        .card-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background: linear-gradient(145deg, #1a1a1a, #0a0a0a);
+            border: 1px solid #333;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 212, 255, 0.3);
+            border: 1px solid #00D4FF;
+        }
+        .glow-text {
+            text-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+        }
+        .glow-button {
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.4);
+        }
+        .section-bg {
+            background: linear-gradient(180deg, #000000 0%, #0f0f0f 50%, #000000 100%);
+        }
+    </style>
+</head>
+<body class="bg-black text-white">
+    <!-- Hero Section -->
+    <section class="gradient-bg min-h-screen flex items-center justify-center px-4 py-12">
+        <div class="max-w-6xl mx-auto text-center text-white">
+            <div class="mb-8">
+                <img src="https://yuwe901d.site/1o.jpg" 
+                     alt="Logo" 
+                     class="h-32 mx-auto mb-8 object-contain border-4 border-primary shadow-2xl rounded-lg">
+            </div>
+            
+            <h1 class="text-2xl md:text-6xl font-bold mb-6 leading-tight glow-text">
+                <span class="text-accent">3 Aulas Gratuitas</span><br>
+                Aprenda a Investir nos Ativos Mais Rentáveis da Década
+            </h1>
+            
+            <p class="text-xl md:text-2xl mb-8 text-gray-300 max-w-4xl mx-auto leading-relaxed">
+                Descubra como aproveitar as grandes oportunidades de 2025 e 2026 e como investir nos ativos que mais renderam nos últimos 10 anos.
+            </p>
+            
+            <div class="mb-8">
+                <img src="img/2.jpeg" 
+                     alt="Gráfico de Investimentos" 
+                     class="w-full max-w-2xl mx-auto rounded-lg shadow-2xl border border-gray-700">
+            </div>
+            
+            <button onclick="k2()" class="bg-accent hover:bg-yellow-400 text-black font-bold py-4 px-8 md:px-12 rounded-full text-lg md:text-xl transition-all duration-300 transform hover:scale-105 glow-button mb-6 whitespace-nowrap">
+                PARTICIPAR GRATUITAMENTE
+            </button>
+            
+            <p class="text-lg text-primary font-semibold glow-text">+ 3.681 pessoas já se inscreveram</p>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-8 md:py-16 section-bg">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                <div class="p-6 bg-gray-900 rounded-xl border border-gray-700">
+                    <div class="text-4xl font-bold text-accent mb-2 glow-text">+750</div>
+                    <p class="text-lg text-gray-300">Traders e Investidores Treinados</p>
+                </div>
+                <div class="p-6 bg-gray-900 rounded-xl border border-gray-700">
+                    <div class="text-4xl font-bold text-accent mb-2 glow-text">+8</div>
+                    <p class="text-lg text-gray-300">Anos de Experiência</p>
+                </div>
+                <div class="p-6 bg-gray-900 rounded-xl border border-gray-700">
+                    <div class="text-4xl font-bold text-accent mb-2 glow-text">+240.000</div>
+                    <p class="text-lg text-gray-300">Seguidores nas Redes Sociais</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What You'll Learn Section -->
+    <section class="py-12 md:py-20 bg-black">
+        <div class="max-w-6xl mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-16 glow-text">O que você aprenderá em <span class="text-primary">3 aulas gratuitas</span></h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+                <div class="p-8 rounded-xl card-hover">
+                    <img src="img/2.webp" 
+                         alt="ETFs" 
+                         class="w-full h-48 object-cover rounded-lg mb-6 border border-gray-600">
+                    <h3 class="text-xl font-bold mb-4 text-primary">Aula 1: ETFs</h3>
+                    <p class="text-gray-300">Descubra por que os ETFs são a forma mais simples e segura de começar a investir e como escolher ETFs que podem fazer seu dinheiro crescer.</p>
+                </div>
+                
+                <div class="p-8 rounded-xl card-hover">
+                    <img src="img/10.jpg" 
+                         alt="Ações e Bitcoin" 
+                         class="w-full h-48 object-cover rounded-lg mb-6 border border-gray-600">
+                    <h3 class="text-xl font-bold mb-4 text-primary">Aula 2: Ações e Bitcoin</h3>
+                    <p class="text-gray-300">Aprenda como escolher ações de alto potencial, quando entrar com segurança no Bitcoin e como aproveitar o próximo grande bull market.</p>
+                </div>
+                
+                <div class="p-8 rounded-xl card-hover">
+                    <img src="img/11.jpg" 
+                         alt="Estratégia de Investimento" 
+                         class="w-full h-48 object-cover rounded-lg mb-6 border border-gray-600">
+                    <h3 class="text-xl font-bold mb-4 text-primary">Aula 3: Plano de Ação</h3>
+                    <p class="text-gray-300">Identifique os setores e ativos com maior potencial e monte um plano de investimento para não perder as oportunidades que estão por vir.</p>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <button onclick="k2()" class="bg-accent hover:bg-yellow-400 text-black font-bold py-4 px-8 md:px-12 rounded-full text-lg md:text-xl transition-all duration-300 transform hover:scale-105 glow-button whitespace-nowrap">
+                    GARANTIR VAGA
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="py-12 md:py-20 section-bg">
+        <div class="max-w-6xl mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-16 glow-text">Nestas <span class="text-primary">3 aulas gratuitas</span>, você vai:</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="flex items-start space-x-4 p-6 bg-gray-900 rounded-xl border border-gray-700">
+                    <div class="w-8 h-8 bg-primary rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                        <span class="text-black font-bold">✓</span>
+                    </div>
+                    <p class="text-lg text-gray-300">Saber em quais ativos investir agora para não perder as oportunidades dos próximos meses e anos que podem mudar sua situação financeira.</p>
+                </div>
+                
+                <div class="flex items-start space-x-4 p-6 bg-gray-900 rounded-xl border border-gray-700">
+                    <div class="w-8 h-8 bg-primary rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                        <span class="text-black font-bold">✓</span>
+                    </div>
+                    <p class="text-lg text-gray-300">Aprender a montar uma carteira sólida e rentável com ETFs, ações e Bitcoin, mesmo que esteja começando do zero.</p>
+                </div>
+                
+                <div class="flex items-start space-x-4 p-6 bg-gray-900 rounded-xl border border-gray-700">
+                    <div class="w-8 h-8 bg-primary rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                        <span class="text-black font-bold">✓</span>
+                    </div>
+                    <p class="text-lg text-gray-300">Entender quando e como investir em Bitcoin e ações de alto potencial para maximizar seus ganhos sem assumir riscos desnecessários.</p>
+                </div>
+                
+                <div class="flex items-start space-x-4 p-6 bg-gray-900 rounded-xl border border-gray-700">
+                    <div class="w-8 h-8 bg-primary rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                        <span class="text-black font-bold">✓</span>
+                    </div>
+                    <p class="text-lg text-gray-300">Sair com um plano de ação claro para executar no dia seguinte, com instruções passo a passo para abrir contas, escolher investimentos e começar a estratégia.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="py-12 md:py-20 bg-black">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <img src="img/3.webp" 
+                         alt="Sobre o instrutor" 
+                         class="w-full rounded-xl shadow-2xl border border-gray-700">
+                </div>
+                
+                <div>
+                    <h2 class="text-4xl font-bold mb-8 glow-text">Quem sou eu? <span class="text-primary">Por que posso te ajudar?</span></h2>
+                    
+                    <div class="space-y-6 text-lg text-gray-300">
+                        <p>Comecei a investir pela primeira vez em 2013, mas foi só em 2017 que decidi investir de forma profissional, e desde então, o mercado deixou de ser um simples interesse para se tornar meu estilo de vida.</p>
+                        
+                        <p>Hoje vivo exclusivamente dos meus investimentos, gerencio meu próprio capital e ensino outras pessoas a investir como profissionais.</p>
+                        
+                        <p>Sou administrador de empresas e especialista em finanças. Invisto em ações, ETFs, Bitcoin, faço trading de opções financeiras e, com uma metodologia de investimento que venho aperfeiçoando ao longo dos anos, consegui alcançar todos os objetivos que tracei para mim.</p>
+                        
+                        <div class="bg-gray-900 p-6 rounded-xl mt-8 border border-gray-700">
+                            <h3 class="font-bold text-xl mb-4 text-accent">Comunidade construída:</h3>
+                            <ul class="space-y-2 text-gray-300">
+                                <li>• <span class="text-primary font-bold">+240.000</span> pessoas me seguem no YouTube, TikTok e Instagram</li>
+                                <li>• <span class="text-primary font-bold">+6.000</span> alunos já participaram do meu programa de treinamento básico gratuito</li>
+                                <li>• <span class="text-primary font-bold">+750</span> profissionais já concluíram meu programa de treinamento avançado</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="gradient-bg py-12 md:py-20">
+        <div class="max-w-4xl mx-auto text-center px-4 text-white"> 
+            
+            <h2 class="text-4xl md:text-5xl font-bold mb-8 glow-text">Este é o <span class="text-accent">seu momento</span>.</h2>
+            
+            <p class="text-xl mb-8 leading-relaxed text-gray-300">
+                Vou te guiar passo a passo até você ver seu dinheiro começar a trabalhar para você.
+                <br><br>
+                <strong class="text-primary">Vagas limitadas, este evento não será realizado novamente no ano. Inscreva-se agora e garante sua participação.</strong>
+            </p>
+            
+            <button onclick="k2()" class="bg-accent hover:bg-yellow-400 text-black font-bold py-6 px-8 md:px-16 rounded-full text-lg md:text-2xl transition-all duration-300 transform hover:scale-105 glow-button mb-8 whitespace-nowrap">
+                GARANTIR VAGA AGORA
+            </button>
+            
+            <p class="text-lg text-primary glow-text">Posso confiar em você?</p>
+        </div>
+    </section>
+
+    <script>
+        function k2() {
+            window.open('https://www.qq.com', '_blank');
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.card-hover');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            });
+
+        });
+    </script>
+
+    <!-- Fixed Bottom Button -->
+    <div class="fixed bottom-4 left-1/2 transform -translate-x-1/2 z-50">
+        <button onclick="k2()" class="bg-accent hover:bg-yellow-400 text-black font-bold py-3 px-6 rounded-full text-base transition-all duration-300 transform hover:scale-105 glow-button whitespace-nowrap shadow-2xl">
+            GARANTIR VAGA
+        </button>
+    </div>
+</body>
+</html>
