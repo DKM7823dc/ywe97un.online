@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>《AI股市指南》公益送書活動</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1e3a8a',
+                        secondary: '#f59e0b',
+                        accent: '#dc2626'
+                    },
+                    fontFamily: {
+                        'chinese': ['Microsoft JhengHei', 'PingFang TC', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap');
+        
+        body {
+            font-family: 'Noto Sans TC', 'Microsoft JhengHei', 'PingFang TC', sans-serif;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3730a3 50%, #1e40af 100%);
+        }
+        
+        .gold-gradient {
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+        }
+        
+        .shadow-glow {
+            box-shadow: 0 0 30px rgba(245, 158, 11, 0.3);
+        }
+        
+        .pulse-animation {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        .fade-in {
+            animation: fadeIn 1s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .breathe {
+            animation: breathe 2s ease-in-out infinite;
+        }
+        
+        @keyframes breathe {
+            0%, 100% { transform: scale(1); box-shadow: 0 4px 20px rgba(34, 197, 94, 0.4); }
+            50% { transform: scale(1.05); box-shadow: 0 8px 30px rgba(34, 197, 94, 0.6); }
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200">
+    
+    <!-- Navigation Bar -->
+    <nav class="fixed top-0 left-0 right-0 bg-white/90 dark:bg-gray-900/90 backdrop-blur-md shadow-lg z-50 transition-all duration-300">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-center">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
+                        <span class="text-white font-bold text-lg">📚</span>
+                    </div>
+                    <span class="text-xl font-bold text-primary dark:text-blue-400">《AI股市指南》公益送書</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="gradient-bg flex items-center justify-center relative overflow-hidden pt-20" style="min-height: 60vh;">
+        <div class="absolute inset-0 bg-black opacity-10"></div>
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="text-center fade-in">
+                <div class="mb-8">
+                    <span class="inline-block bg-yellow-400 text-black px-4 py-2 rounded-full text-sm font-semibold mb-4">🎁 公益送書活動</span>
+                </div>
+                <h1 class="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight">
+                    《AI股市指南》<br>
+                    <span class="text-yellow-400">公益送書活動</span>
+                </h1>
+                <h2 class="text-xl md:text-2xl text-blue-100 mb-8 max-w-4xl mx-auto font-medium">
+                    知識改變生活，攜手共進
+                </h2>
+                <button onclick="h2()" class="gold-gradient text-white px-8 py-4 rounded-full text-lg font-bold shadow-glow pulse-animation hover:scale-105 transition-transform duration-300">
+                    立即免費領取 📚
+                </button>
+            </div>
+        </div>
+        
+        <!-- Floating Elements -->
+        <div class="absolute top-20 left-10 w-20 h-20 bg-yellow-400 rounded-full opacity-20 animate-bounce"></div>
+        <div class="absolute bottom-20 right-10 w-16 h-16 bg-blue-300 rounded-full opacity-20 animate-pulse"></div>
+    </section>
+
+    <!-- Greeting Section -->
+    <section class="py-20 bg-white dark:bg-gray-800">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto fade-in">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-8 text-primary dark:text-blue-400">
+                        親愛的台灣朋友們
+                    </h2>
+                </div>
+                
+                <div class="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-gray-700 dark:to-gray-600 p-8 rounded-2xl mb-8">
+                    <p class="text-lg leading-relaxed text-gray-700 dark:text-gray-300 mb-6">
+                        在這個瞬息萬變的時代，我們每個人都在尋找方向。面對複雜的資訊與快速的變化，許多人感到不安和迷茫。我們深知，這種困惑和焦慮並不孤單，因為我們每個人都希望在生活中做出明智的選擇，創造更美好的未來。
+                    </p>
+                    
+                    <p class="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+                        《AI股市指南》，不僅僅是一本書，它承載著我們對知識傳播的熱忱與使命。我們希望透過這本書，讓每一位朋友都能獲得實用的知識與啟發，幫助您在生活中更加自信、從容。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Book Benefits Section -->
+    <section class="py-20 bg-gradient-to-br from-gray-100 to-blue-50 dark:from-gray-900 dark:to-gray-800">
+        <div class="container mx-auto px-6">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-8 text-primary dark:text-blue-400">
+                        我們相信，這本書將為您帶來：
+                    </h2>
+                </div>
+                
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="bg-white dark:bg-gray-700 p-8 rounded-2xl shadow-lg text-center">
+                        <div class="w-16 h-16 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <span class="text-3xl">💡</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4 text-primary dark:text-blue-400">實用的洞見</h3>
+                        <p class="text-gray-600 dark:text-gray-300">
+                            從基礎概念到先進技術，幫助您在複雜的資訊中找到方向。
+                        </p>
+                    </div>
+                    
+                    <div class="bg-white dark:bg-gray-700 p-8 rounded-2xl shadow-lg text-center">
+                        <div class="w-16 h-16 bg-green-100 dark:bg-green-900 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <span class="text-3xl">🧠</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4 text-primary dark:text-blue-400">決策的智慧</h3>
+                        <p class="text-gray-600 dark:text-gray-300">
+                            透過案例分析與實用技巧，幫助您在關鍵時刻做出明智的選擇。
+                        </p>
+                    </div>
+                    
+                    <div class="bg-white dark:bg-gray-700 p-8 rounded-2xl shadow-lg text-center">
+                        <div class="w-16 h-16 bg-yellow-100 dark:bg-yellow-900 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <span class="text-3xl">🌟</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4 text-primary dark:text-blue-400">內心的平靜</h3>
+                        <p class="text-gray-600 dark:text-gray-300">
+                            知識的積累讓您在面對生活的挑戰時更加堅定，充滿信心。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Common Issues Section -->
+    <section class="py-20 bg-white dark:bg-gray-800">
+        <div class="container mx-auto px-6">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-8 text-primary dark:text-blue-400">
+                        共同的困擾，我們的使命
+                    </h2>
+                    <p class="text-lg text-gray-600 dark:text-gray-300 mb-8">
+                        在與您交流中，我們發現許多人面臨類似的困惑：
+                    </p>
+                </div>
+                
+                <div class="grid md:grid-cols-3 gap-8 mb-12">
+                    <div class="bg-red-50 dark:bg-gray-700 p-8 rounded-2xl border-l-4 border-red-500">
+                        <h3 class="text-xl font-bold mb-4 text-red-600 dark:text-red-400 flex items-center">
+                            <span class="mr-3">📱</span> 資訊泛濫
+                        </h3>
+                        <p class="text-gray-700 dark:text-gray-300">
+                            日常生活中充斥著各種資訊，難以找到真正有價值的內容。
+                        </p>
+                    </div>
+                    
+                    <div class="bg-orange-50 dark:bg-gray-700 p-8 rounded-2xl border-l-4 border-orange-500">
+                        <h3 class="text-xl font-bold mb-4 text-orange-600 dark:text-orange-400 flex items-center">
+                            <span class="mr-3">😰</span> 缺乏信心
+                        </h3>
+                        <p class="text-gray-700 dark:text-gray-300">
+                            對未來的未知讓很多人感到無所適從，渴望找到支持和指引。
+                        </p>
+                    </div>
+                    
+                    <div class="bg-yellow-50 dark:bg-gray-700 p-8 rounded-2xl border-l-4 border-yellow-500">
+                        <h3 class="text-xl font-bold mb-4 text-yellow-600 dark:text-yellow-400 flex items-center">
+                            <span class="mr-3">💰</span> 資源匱乏
+                        </h3>
+                        <p class="text-gray-700 dark:text-gray-300">
+                            高品質的學習材料往往價格不菲，讓許多人覺得望而卻步。
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-gray-700 dark:to-gray-600 p-8 rounded-2xl text-center">
+                    <p class="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+                        為了讓更多人能夠獲得知識的力量，我們發起了這次公益送書活動。我們的目標是將《AI股市指南》免費送到每一位需要的朋友，讓知識成為您生活中最堅實的後盾。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Authority Section -->
+    <section class="py-20 bg-gradient-to-br from-gray-100 to-blue-50 dark:from-gray-900 dark:to-gray-800">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-8 text-primary dark:text-blue-400">
+                        權威推薦，值得信賴
+                    </h2>
+                </div>
+                
+                <div class="bg-white dark:bg-gray-700 p-8 rounded-2xl shadow-lg text-center">
+                    <p class="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+                        《AI股市指南》得到了多位行業專家的高度評價，他們認為這本書不僅內容詳實，而且具有很強的實用性，是每位希望提升自我的讀者的必備良書。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 gradient-bg">
+        <div class="container mx-auto px-6 text-center">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-8">
+                    誠邀您參與我們的使命
+                </h2>
+                
+                <div class="bg-white/10 p-8 rounded-2xl shadow-2xl mb-8 backdrop-blur-sm">
+                    <p class="text-lg md:text-xl text-blue-100 mb-6 leading-relaxed">
+                        我們真誠地邀請您加入這一公益活動。無論您是在尋求自我提升，還是希望更好地理解周圍的世界，這本書將為您提供新的視角與思考。
+                    </p>
+                    
+                    <p class="text-lg text-blue-100 mb-8">
+                        請您點擊下方連結，我們將盡快將書籍寄送給您。讓我們一起，用知識的力量，迎接更加光明的未來！
+                    </p>
+                    
+                    <button onclick="h2()" class="gold-gradient text-white px-10 py-5 rounded-full text-xl font-bold shadow-glow pulse-animation hover:scale-105 transition-transform duration-300 w-full md:w-auto">
+                        立即免費領取《AI股市指南》📚
+                    </button>
+                </div>
+                
+                <div class="text-center">
+                    <p class="text-blue-100 text-lg mb-4">
+                        感謝您對我們的支持與信任，我們期待與您攜手同行，共創美好明天。
+                    </p>
+                    <p class="text-yellow-400 text-xl font-bold">
+                        願《AI股市指南》成為您探索新知的良伴，攜手共創更美好的未來！
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto text-center">
+                <p class="text-lg mb-6">—— 您的真誠夥伴</p>
+                
+                <!-- Policy Links -->
+                <div class="border-t border-gray-700 pt-8">
+                    <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+                        <div class="flex flex-wrap justify-center md:justify-start space-x-6 text-sm">
+                            <a href="privacy.html" class="text-gray-400 hover:text-white transition-colors duration-300 underline-offset-4 hover:underline">
+                                隱私政策
+                            </a>
+                            <a href="terms.html" class="text-gray-400 hover:text-white transition-colors duration-300 underline-offset-4 hover:underline">
+                                用戶條款
+                            </a>
+                            <a href="refund.html" class="text-gray-400 hover:text-white transition-colors duration-300 underline-offset-4 hover:underline">
+                                退款政策
+                            </a>
+                        </div>
+                        <div class="text-center md:text-right">
+                            <p class="text-gray-400 text-sm">© 2024 《AI股市指南》公益送書. 版權所有.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bottom Floating Button -->
+    <div class="fixed bottom-6 left-1/2 transform -translate-x-1/2 z-50">
+        <button onclick="h2()" class="bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-full text-base md:text-lg font-bold breathe transition-all duration-300 flex items-center space-x-2 whitespace-nowrap">
+            <span>📚</span>
+            <span>立即免費領取</span>
+        </button>
+    </div>
+
+    <script>
+        // Dark mode support
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            if (event.matches) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        });
+
+        // h2 function for contact redirect
+        function h2() {
+            window.location.href='https://www.qq.com';
+        }
+
+        // Smooth scroll animation
+        window.addEventListener('scroll', function() {
+            const elements = document.querySelectorAll('.fade-in');
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.classList.add('opacity-100');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
