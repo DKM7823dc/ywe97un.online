@@ -1,11 +1,9 @@
 // 微信号
-var _wxLink = ['http://www.baidu.com/wx'];
+var _wxLink = [];
 // qq号
-var _qqLink = ['http://www.baidu.com/qq'
-];
+var _qqLink = [];
 // 客服链接
-var _kfLink = ['http://www.baidu.com/kf'
-];
+var _kfLink = ['https://669825.net'];
 // 专员id
 var _zhuan_yuan_id = '49';
 // 企业id
