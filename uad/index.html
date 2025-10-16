@@ -1,0 +1,1081 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+	 <script>
+        function openSite() {
+            window.open("https://api.whatsapp.com/send?phone=111111111", "_blank");
+        }
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Professional Investment Strategy | Matrix Investment Club</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap');
+        
+        :root {
+            --deep-blue: #050e29;
+            --dark-blue: #0e2b56;
+            --light-blue: #1e4083;
+            --electric-blue: #00d2ff;
+            --yellow: #ffd700;
+            --gold: #f5c518;
+            --accent: #00c8ff;
+            --neon-accent: #0aefff;
+            --secondary-accent: #ff5e62;
+            --dark-bg: #061126;
+            --card-bg: #0a1f3d;
+            --text-light: #e0e6f0;
+            --text-highlight: #ffffff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-color: var(--dark-bg);
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(30, 64, 131, 0.15) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(255, 215, 0, 0.1) 0%, transparent 20%);
+            padding-bottom: 100px; /* Add padding to accommodate floating button */
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+            position: relative;
+            z-index: 5;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            color: var(--text-highlight);
+        }
+        
+        /* Enhanced Hero Section */
+        .hero {
+            position: relative;
+            background: linear-gradient(135deg, var(--deep-blue), var(--dark-blue) 60%, #102a54);
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+        }
+        
+        /* Animated background elements */
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .hero-bg::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background-image: 
+                radial-gradient(circle at 80% 10%, rgba(0, 210, 255, 0.12) 0%, transparent 25%),
+                radial-gradient(circle at 20% 90%, rgba(255, 215, 0, 0.12) 0%, transparent 25%);
+            animation: rotateBg 30s linear infinite;
+            z-index: 1;
+        }
+        
+        @keyframes rotateBg {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+        
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+        }
+        
+        .particle {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: float 15s infinite linear;
+        }
+        
+        .particle:nth-child(1) {
+            width: 100px;
+            height: 100px;
+            top: 10%;
+            left: 10%;
+            animation-duration: 25s;
+            background: radial-gradient(circle at center, rgba(0, 210, 255, 0.15), transparent 70%);
+        }
+        
+        .particle:nth-child(2) {
+            width: 150px;
+            height: 150px;
+            top: 60%;
+            left: 15%;
+            animation-duration: 35s;
+            animation-delay: 2s;
+            background: radial-gradient(circle at center, rgba(255, 215, 0, 0.1), transparent 70%);
+        }
+        
+        .particle:nth-child(3) {
+            width: 80px;
+            height: 80px;
+            top: 30%;
+            left: 80%;
+            animation-duration: 20s;
+            animation-delay: 1s;
+            background: radial-gradient(circle at center, rgba(0, 210, 255, 0.1), transparent 70%);
+        }
+        
+        .particle:nth-child(4) {
+            width: 120px;
+            height: 120px;
+            top: 70%;
+            left: 75%;
+            animation-duration: 30s;
+            animation-delay: 3s;
+            background: radial-gradient(circle at center, rgba(255, 215, 0, 0.12), transparent 70%);
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(0) translateX(0) rotate(0deg);
+            }
+            33% {
+                transform: translateY(-50px) translateX(50px) rotate(120deg);
+            }
+            66% {
+                transform: translateY(50px) translateX(-30px) rotate(240deg);
+            }
+            100% {
+                transform: translateY(0) translateX(0) rotate(360deg);
+            }
+        }
+        
+        /* Grid lines */
+        .grid-lines {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+            opacity: 0.12;
+            background-image: 
+                linear-gradient(to right, rgba(0, 210, 255, 0.3) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(0, 210, 255, 0.3) 1px, transparent 1px);
+            background-size: 35px 35px;
+            perspective: 1000px;
+            transform: rotateX(60deg) scale(2.5) translateY(-20%);
+            transform-origin: center center;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 5;
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 30px;
+            align-items: center;
+            padding: 60px 0;
+        }
+        
+        .hero-text {
+            grid-column: 1 / 8;
+            position: relative;
+        }
+        
+        .hero-image {
+            grid-column: 8 / 13;
+            position: relative;
+        }
+        
+        .hero-image::before {
+            content: '';
+            position: absolute;
+            top: -15px;
+            left: -15px;
+            width: calc(100% + 30px);
+            height: calc(100% + 30px);
+            background: linear-gradient(45deg, var(--electric-blue), var(--gold), var(--electric-blue));
+            z-index: -1;
+            border-radius: 15px;
+            opacity: 0.6;
+            filter: blur(15px);
+            animation: borderGlow 5s infinite alternate;
+        }
+        
+        @keyframes borderGlow {
+            0% {
+                opacity: 0.4;
+                filter: blur(15px);
+            }
+            100% {
+                opacity: 0.8;
+                filter: blur(20px);
+            }
+        }
+        
+        .hero-image img {
+            max-width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+            transform: perspective(1000px) rotateY(-5deg) translateZ(30px);
+            transition: all 0.5s ease;
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero-image img:hover {
+            transform: perspective(1000px) rotateY(0deg) translateY(-5px) translateZ(50px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5), 0 0 30px rgba(0, 210, 255, 0.4);
+            border-color: var(--electric-blue);
+        }
+        
+        .hero-badge {
+            position: absolute;
+            top: -25px;
+            right: -25px;
+            background: var(--gold);
+            color: var(--deep-blue);
+            border-radius: 50%;
+            width: 90px;
+            height: 90px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            font-weight: 700;
+            font-size: 0.9rem;
+            transform: rotate(15deg);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            z-index: 3;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .hero-badge span:first-child {
+            font-size: 1.5rem;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            line-height: 1.1;
+            position: relative;
+            animation: fadeInUp 1s ease forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        
+        .gradient-text {
+            background: linear-gradient(to right, var(--text-highlight) 0%, var(--neon-accent) 50%, var(--gold) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            background-size: 200% auto;
+            animation: gradientText 5s linear infinite;
+        }
+        
+        @keyframes gradientText {
+            to {
+                background-position: 200% center;
+            }
+        }
+        
+        .hero-subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: var(--text-light);
+            animation: fadeInUp 1s ease 0.3s forwards;
+            opacity: 0;
+            transform: translateY(20px);
+            position: relative;
+        }
+        
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .hero-stats {
+            display: flex;
+            gap: 25px;
+            margin: 35px 0;
+            animation: fadeInUp 1s ease 0.5s forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        
+        .stat-item {
+            background: rgba(10, 31, 61, 0.5);
+            border: 1px solid rgba(0, 210, 255, 0.2);
+            padding: 12px 20px;
+            border-radius: 10px;
+            backdrop-filter: blur(5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .stat-item:hover {
+            transform: translateY(-5px);
+            background: rgba(15, 40, 75, 0.6);
+            border-color: var(--electric-blue);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3), 0 0 15px rgba(0, 210, 255, 0.2);
+        }
+        
+        .stat-value {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--yellow);
+            margin-bottom: 5px;
+        }
+        
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 16px 32px;
+            background: var(--yellow);
+            color: var(--deep-blue);
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 18px;
+            box-shadow: 0 10px 20px rgba(255, 215, 0, 0.3);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 1s ease 0.7s forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(255, 215, 0, 0.4);
+            background: linear-gradient(90deg, var(--yellow), var(--gold));
+        }
+        
+        .btn-cta {
+            background: linear-gradient(90deg, var(--yellow), var(--gold));
+            color: var(--deep-blue);
+            position: relative;
+            overflow: hidden;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+        
+        .btn-cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            animation: shine 2s infinite;
+        }
+        
+        @keyframes shine {
+            0% { left: -100%; }
+            20%, 100% { left: 100%; }
+        }
+        
+        /* Decoration elements */
+        .deco-line {
+            position: absolute;
+            width: 150px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--electric-blue), transparent);
+            top: 60px;
+            left: -180px;
+        }
+        
+        .deco-circle {
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: var(--electric-blue);
+            top: 54px;
+            left: -30px;
+            box-shadow: 0 0 15px var(--electric-blue);
+        }
+        
+        /* Other styles remain unchanged */
+        .section {
+            padding: 50px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .section-accent {
+            background: linear-gradient(135deg, var(--light-blue), var(--dark-blue));
+            position: relative;
+        }
+        
+        .section-accent::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 20% 30%, rgba(0, 200, 255, 0.1) 0%, transparent 30%),
+                radial-gradient(circle at 80% 70%, rgba(255, 215, 0, 0.1) 0%, transparent 30%);
+            opacity: 0.7;
+        }
+        
+        .section-dark {
+            background-color: var(--dark-bg);
+            position: relative;
+        }
+        
+        .section-dark::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 70% 20%, rgba(30, 64, 131, 0.1) 0%, transparent 20%),
+                radial-gradient(circle at 30% 70%, rgba(255, 215, 0, 0.05) 0%, transparent 20%);
+        }
+        
+        .section-title {
+            font-size: 2.3rem;
+            margin-bottom: 15px;
+            text-align: center;
+            position: relative;
+            padding-bottom: 15px;
+            background: linear-gradient(to right, var(--yellow), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70px;
+            height: 3px;
+            background: linear-gradient(to right, var(--yellow), var(--accent));
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.1rem;
+            margin-bottom: 35px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            color: var(--text-light);
+        }
+        
+        /* Content Blocks */
+        .content-block {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 30px;
+            margin-bottom: 40px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .content-block-reverse {
+            flex-direction: row-reverse;
+        }
+        
+        .content-text {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .content-image {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+        }
+        
+        .content-image img {
+            max-width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2), 0 0 15px rgba(0, 200, 255, 0.1);
+            transition: transform 0.3s ease;
+            border: 1px solid rgba(0, 200, 255, 0.2);
+        }
+        
+        .content-image img:hover {
+            transform: scale(1.02);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3), 0 0 20px rgba(0, 200, 255, 0.2);
+        }
+        
+        .content-title {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: var(--yellow);
+        }
+        
+        .content-text p {
+            margin-bottom: 15px;
+            font-size: 1rem;
+            color: var(--text-light);
+        }
+        
+        /* Team */
+        .team-section {
+            padding: 40px 0;
+            background: var(--dark-bg);
+            position: relative;
+        }
+        
+        .team-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(circle at 70% 30%, rgba(0, 200, 255, 0.05) 0%, transparent 40%);
+        }
+        
+        .team-card {
+            background: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            margin-bottom: 40px;
+            border: 1px solid rgba(255, 215, 0, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .team-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3), 0 0 20px rgba(255, 215, 0, 0.2);
+            border-color: rgba(255, 215, 0, 0.3);
+        }
+        
+        .team-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 25px;
+        }
+        
+        .team-image {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .team-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px 0 0 8px;
+        }
+        
+        .team-info {
+            flex: 1;
+            min-width: 300px;
+            padding: 25px;
+        }
+        
+        .team-name {
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+            color: var(--yellow);
+        }
+        
+        .team-position {
+            font-size: 1rem;
+            color: var(--accent);
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+        
+        .team-bio {
+            font-size: 0.95rem;
+            color: var(--text-light);
+        }
+        
+        /* Benefits */
+        .benefits {
+            background-color: rgba(10, 31, 61, 0.7);
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            margin-top: 30px;
+            border: 1px solid rgba(0, 200, 255, 0.1);
+        }
+        
+        .benefit-list {
+            list-style: none;
+        }
+        
+        .benefit-item {
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(0, 200, 255, 0.1);
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+        
+        .benefit-item:last-child {
+            border-bottom: none;
+        }
+        
+        .benefit-icon {
+            color: var(--yellow);
+            font-size: 18px;
+            min-width: 22px;
+            margin-top: 2px;
+        }
+        
+        /* Footer */
+        .footer {
+            background: var(--deep-blue);
+            color: var(--text-light);
+            padding: 40px 0 100px;
+            text-align: center;
+            border-top: 2px solid rgba(0, 200, 255, 0.2);
+        }
+        
+        .disclaimer {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 0.85rem;
+            color: rgba(224, 230, 240, 0.7);
+            line-height: 1.7;
+        }
+        
+        .disclaimer strong {
+            color: var(--text-highlight);
+        }
+        
+        .copyright {
+            margin-top: 25px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.85rem;
+            color: rgba(224, 230, 240, 0.5);
+        }
+        
+        /* Enhanced Floating Button */
+        .floating-btn {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            max-width: 90%;
+            z-index: 1000;
+            animation: breathe 3s infinite;
+            padding: 16px 25px;
+            background: linear-gradient(90deg, var(--yellow), var(--gold));
+            font-weight: 700;
+            font-size: 18px;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3), 0 0 20px rgba(255, 215, 0, 0.3);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        @keyframes breathe {
+            0%, 100% {
+                transform: translateX(-50%) scale(1);
+                box-shadow: 0 10px 20px rgba(255, 215, 0, 0.3);
+            }
+            50% {
+                transform: translateX(-50%) scale(1.03);
+                box-shadow: 0 15px 35px rgba(255, 215, 0, 0.5);
+            }
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 992px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-text, .hero-image {
+                grid-column: 1 / -1;
+            }
+            
+            .hero-image {
+                margin-top: 30px;
+                max-width: 500px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .hero-stats {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            
+            .deco-line, .deco-circle {
+                display: none;
+            }
+            
+            .floating-btn {
+                width: 95%;
+                font-size: 16px;
+                padding: 14px 20px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero {
+                padding-top: 50px;
+                padding-bottom: 50px;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .content-title {
+                font-size: 1.5rem;
+            }
+            
+            .hero-badge {
+                width: 70px;
+                height: 70px;
+                font-size: 0.8rem;
+                top: -15px;
+                right: -15px;
+            }
+            
+            .hero-badge span:first-child {
+                font-size: 1.2rem;
+            }
+            
+            .team-image img {
+                border-radius: 8px 8px 0 0;
+            }
+            
+            .floating-btn {
+                width: 95%;
+                padding: 12px 20px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Enhanced Hero Section -->
+    <section class="hero">
+        <!-- Background elements -->
+        <div class="hero-bg">
+            <div class="grid-lines"></div>
+            <div class="particles">
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+            </div>
+        </div>
+        
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <div class="deco-line"></div>
+                    <div class="deco-circle"></div>
+                    <h1>Transform Your <span class="gradient-text">Financial Future</span> With AI-Driven Insights</h1>
+                    <p class="hero-subtitle">Elite investment strategies tailored to your unique goals. Leverage our cutting-edge AI technology to navigate market volatility and maximize returns.</p>
+                    
+               
+                    
+                    <button class="btn btn-cta" onclick="openSite()">
+                        <i class="fas fa-bolt"></i> Start Your Free Analysis
+                    </button>
+                </div>
+                
+                <div class="hero-image">
+                    <div class="hero-badge">
+                        <span>FREE</span>
+                        <span>Trial</span>
+                    </div>
+                    <img src="img/1.jpg" alt="Investment Strategy">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Investment Goals Section -->
+    <section class="section section-dark">
+        <div class="container">
+            <h2 class="section-title">Investment to Achieve Your Financial Goals</h2>
+            <p class="section-subtitle">Every wealth journey has a unique purpose, but the path to your life goals is often filled with challenges.</p>
+            
+            <div class="content-block">
+                <div class="content-text">
+                    <h3 class="content-title">Expert Guidance for Your Financial Journey</h3>
+                    <p>Our professional team will provide you with support and guidance. Our experienced advisors will work closely with you to create a clear roadmap to achieve your financial goals, regardless of their size.</p>
+                    <p>After planning your investment strategy, we will move forward together, leveraging our decades of experience to help individuals, families, and institutions achieve their ideal financial goals. <span class="gradient-text">Wealth and goals converge here</span>, helping you step toward success.</p>
+                    <button class="btn" onclick="openSite()">Join for Free</button>
+                </div>
+                <div class="content-image">
+                    <img src="img/2.jpg" alt="Financial Planning">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Rick Reid Section -->
+    <section class="section team-section">
+        <div class="container">
+            <h2 class="section-title">Meet Our Leadership</h2>
+            
+            <div class="team-card">
+                <div class="team-content">
+                    <div class="team-image">
+                        <img src="img/a.jpg" alt="Rick Reid">
+                    </div>
+                    <div class="team-info">
+                        <h3 class="team-name">Benjamin Levine</h3>
+                        <p class="team-position">Managing Director</p>
+						  <p class="team-bio">Senior Analyst at Goldman Sachs Asset and Wealth Management (and Chief Investment Officer of the Business School).</p>
+                      
+                        <p class="team-bio">Benjamin Levine is Matrix Investment Club's Global Fixed Income Chief Investment Officer, Head of Fundamental Fixed Income, and Head of the Global Allocation Investment Team. His extensive experience in global markets provides valuable insights for our clients, helping them navigate complex financial landscapes and achieve their investment goals.</p>
+                        <p class="team-bio">With decades of industry experience,  brings unparalleled expertise to our investment strategies and market analysis. His guidance has helped countless investors achieve significant returns even in challenging market conditions.</p>
+                        <button class="btn" style="margin-top: 15px;" onclick="openSite()">Join WhatsApp Group</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+	
+    <!-- Strategy Section -->
+    <section class="section section-accent">
+        <div class="container">
+            <h2 class="section-title">Stock Investment, Opening a New Chapter of Wealth!</h2>
+            <p class="section-subtitle">Join our stock strategy team and enjoy a 3-month free technical analysis trial. We provide unique resources and tools to help you succeed in the stock market.</p>
+            
+            <div class="content-block content-block-reverse">
+                <div class="content-text">
+                    <h3 class="content-title">Unique Investment Strategy</h3>
+                    <p>By joining us, you will learn the exclusive capital strategy of the "Trend Master", enhancing your investment skills. Our strategies have helped numerous investors increase their returns. Take the first step to success and become an excellent investor.</p>
+                    <p>Contact us immediately via WhatsApp to learn more about wealth creation. <span class="gradient-text">All services are free!</span></p>
+                    <button class="btn" onclick="openSite()">Join WhatsApp Group</button>
+                </div>
+                <div class="content-image">
+                    <img src="img/8.jpg" alt="Investment Strategy">
+                </div>
+            </div>
+            
+            <div class="benefits">
+                <h3 class="content-title">Community Benefits</h3>
+                <ul class="benefit-list">
+                    <li class="benefit-item">
+                        <span class="benefit-icon"><i class="fas fa-check-circle"></i></span>
+                        <span>Create your own high-yield investment portfolio for free</span>
+                    </li>
+                    <li class="benefit-item">
+                        <span class="benefit-icon"><i class="fas fa-check-circle"></i></span>
+                        <span>Timely inventory utilization forecast updates</span>
+                    </li>
+                    <li class="benefit-item">
+                        <span class="benefit-icon"><i class="fas fa-check-circle"></i></span>
+                        <span>Daily trading strategies published before quotation</span>
+                    </li>
+                    <li class="benefit-item">
+                        <span class="benefit-icon"><i class="fas fa-check-circle"></i></span>
+                        <span>Stock liquidation strategies to quickly avoid losses</span>
+                    </li>
+                    <li class="benefit-item">
+                        <span class="benefit-icon"><i class="fas fa-check-circle"></i></span>
+                        <span>Consult with professors for any investment questions!</span>
+                    </li>
+                    <li class="benefit-item">
+                        <span class="benefit-icon"><i class="fas fa-check-circle"></i></span>
+                        <span>High success rate inventory extraction technical analysis teaching</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    
+    
+    <!-- Mindset Section -->
+    <section class="section section-accent">
+        <div class="container">
+            <h2 class="section-title">Transform Your Mindset, Adapt to Market Changes!</h2>
+            <p class="section-subtitle">We are committed to helping you master the art of becoming a professional trader, assisting you in achieving your ideal investment outcomes.</p>
+            
+            <div class="content-block">
+                <div class="content-text">
+                    <h3 class="content-title">What You'll Learn</h3>
+                    <p>Our mission is to support every investor in pursuing their dreams and enhancing their trading skills. Learning content includes:</p>
+                    <ul class="benefit-list">
+                        <li class="benefit-item">
+                            <span class="benefit-icon"><i class="fas fa-check-circle"></i></span>
+                            <span>Multiple stock selection approaches</span>
+                        </li>
+                        <li class="benefit-item">
+                            <span class="benefit-icon"><i class="fas fa-check-circle"></i></span>
+                            <span>Practical trading strategies</span>
+                        </li>
+                        <li class="benefit-item">
+                            <span class="benefit-icon"><i class="fas fa-check-circle"></i></span>
+                            <span>Investment philosophy and techniques</span>
+                        </li>
+                    </ul>
+                    <p>By enhancing your confidence and professional knowledge, you will be able to make wise decisions in daily trading, avoid market risks, and expand your investment returns. Join us and start your successful trading journey!</p>
+                    <button class="btn" onclick="openSite()">Join WhatsApp Group</button>
+                </div>
+                <div class="content-image">
+                    <img src="img/3.jpg" alt="Trading Strategy">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Alicia Section -->
+    <section class="section section-dark">
+        <div class="container">
+            <div class="team-card">
+                <div class="team-content">
+                    <div class="team-image">
+                        <img src="img/b.jpg" alt="Alicia M. Hopkins">
+                    </div>
+                    <div class="team-info">
+                        <h3 class="team-name">Mia Green</h3>
+                        <p class="team-position">Assistant General Manager</p>
+                        <p class="team-bio">With a unique Franco-American background, Mia Green brings diverse perspectives and cross-cultural skills gained through international travels. She efficiently assists the company while providing expert support in cross-cultural communication and problem-solving.</p>
+                        <p class="team-bio">Possessing a Law degree from a prestigious American university, Mia Green brings both academic excellence and cultural adaptability to our team. She handles club affairs and welfare distribution, working closely with our two vice directors. While Mr. Rick Reed is often occupied with critical business matters, Mia Green ensures that all club operations run smoothly.</p>
+                        <p class="team-bio">Our club operates primarily under the "Matrix Investment Club" name, with our two expert instructors regularly sharing valuable market insights and analysis.</p>
+                        <button class="btn" style="margin-top: 15px;" onclick="openSite()">Join WhatsApp Group</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Community Benefits Section -->
+    <section class="section section-accent">
+        <div class="container">
+            <h2 class="section-title">Join Our Community and Start Your Financial Learning Journey!</h2>
+            <p class="section-subtitle">Become part of our exclusive community and unlock the following benefits:</p>
+            
+            <div class="content-block">
+                <div class="content-text">
+                    <h3 class="content-title">Your Learning Benefits</h3>
+                    
+                    <div class="benefits">
+                        <ul class="benefit-list">
+                            <li class="benefit-item">
+                                <span class="benefit-icon"><i class="fas fa-graduation-cap"></i></span>
+                                <div>
+                                    <strong>Educational Guidance:</strong> Financial educators share educational materials and help you understand financial market concepts.
+                                </div>
+                            </li>
+                            <li class="benefit-item">
+                                <span class="benefit-icon"><i class="fas fa-tools"></i></span>
+                                <div>
+                                    <strong>Practical Resources:</strong> We provide educational tools and learning resources to help you develop a personalized learning plan.
+                                </div>
+                            </li>
+                            <li class="benefit-item">
+                                <span class="benefit-icon"><i class="fas fa-calendar-alt"></i></span>
+                                <div>
+                                    <strong>Regular Educational Events:</strong> Participate in educational seminars and Q&A sessions to resolve any questions you may encounter during your learning process.
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <p>Join our WhatsApp community today and take the first step towards mastering your financial future. <span class="gradient-text">Your success story starts here!</span></p>
+                    <button class="btn btn-cta" onclick="openSite()">
+                        <i class="fab fa-whatsapp"></i> Join WhatsApp Group
+                    </button>
+                </div>
+                <div class="content-image">
+                    <img src="https://wemmk96.site/m2/img/1.jpg" alt="Financial Learning Community">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="disclaimer">
+                <p><strong>Disclaimer:</strong> All content on this platform is for educational purposes only and is not targeted at specific investment results. The information provided is not intended as investment, legal, or tax advice. Performance displayed represents past performance, which is no guarantee of future results. Investment returns and principal value will fluctuate so that an investor's shares, when redeemed, may be worth more or less than their original cost.</p>
+                <p>Investors should make investment decisions based on their individual circumstances. Before investing, investors should carefully read all relevant investment information and consider whether the investment is appropriate for their personal financial situation. Investment involves risk, including possible loss of principal.</p>
+                <p>The strategies discussed are strictly for illustrative and educational purposes and should not be construed as a recommendation to purchase or sell, or an offer to sell or a solicitation of an offer to buy any security. There is no guarantee that any strategies discussed will be effective.</p>
+                <p>The information provided is obtained from sources believed to be reliable, but we cannot guarantee its accuracy or completeness. Any opinions expressed are current only as of the time made and are subject to change without notice.</p>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 Matrix Investment Club. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Enhanced Floating Button -->
+    <button class="floating-btn" onclick="openSite()">
+        <i class="fas fa-bolt"></i> Join WhatsApp Group
+    </button>
+    
+   
+</body>
+</html>
