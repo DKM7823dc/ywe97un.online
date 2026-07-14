@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>【緊急】来週上がる株、教えます｜榊原正幸の無料LINE銘柄配信</title>
+    <meta name="description" content="元大学教授・会計学博士の榊原正幸が、来週上がる注目銘柄を無料LINE配信中。決算書分析で見つけた割安株を毎週お届け。">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        function k2() {
+            window.location.href = 'https://www.qq.com';
+        }
+    </script>
+    <style>
+        :root {
+            --bg: #080808;
+            --bg-card: #111111;
+            --bg-card2: #181818;
+            --red: #E63946;
+            --red-bright: #FF4444;
+            --red-glow: rgba(230,57,70,0.25);
+            --green: #2ECC71;
+            --green-glow: rgba(46,204,113,0.2);
+            --white: #F5F5F5;
+            --white-dim: #C0C0C0;
+            --white-muted: #888888;
+            --border: #222222;
+            --border-light: #2A2A2A;
+            --line: #06C755;
+            --radius: 10px;
+            --radius-lg: 16px;
+            --radius-xl: 22px;
+        }
+
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html {
+            scroll-behavior: smooth;
+            -webkit-text-size-adjust: 100%;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background: var(--bg);
+            color: var(--white-dim);
+            line-height: 1.6;
+            min-height: 100vh;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        a { text-decoration: none; color: inherit; }
+        img { max-width: 100%; display: block; }
+        ::selection { background: var(--red); color: #fff; }
+
+        .page {
+            max-width: 500px;
+            margin: 0 auto;
+            background: var(--bg);
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* ══════════════════ FLASH BAR ══════════════════ */
+        .flash-bar {
+            background: linear-gradient(90deg, #E63946, #C0392B, #E63946);
+            background-size: 200% 100%;
+            animation: flash-move 2s linear infinite;
+            color: #fff;
+            text-align: center;
+            padding: 8px 16px;
+            font-size: 0.7rem;
+            font-weight: 800;
+            letter-spacing: 0.04em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        @keyframes flash-move {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 200% 50%; }
+        }
+        .flash-bar .dot {
+            width: 7px; height: 7px;
+            background: #fff;
+            border-radius: 50%;
+            animation: blink-dot 0.7s infinite;
+        }
+        @keyframes blink-dot {
+            0%,100% { opacity: 1; }
+            50% { opacity: 0.2; }
+        }
+
+        /* ══════════════════ HEADER ══════════════════ */
+        .header {
+            position: sticky; top: 0; z-index: 100;
+            background: rgba(8,8,8,0.92);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            padding: 8px 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid var(--border);
+        }
+        .header-l { display: flex; align-items: center; gap: 8px; }
+        .header-logo {
+            width: 30px; height: 30px;
+            background: var(--red);
+            border-radius: 7px;
+            display: flex; align-items: center; justify-content: center;
+            color: #fff; font-weight: 900; font-size: 0.55rem;
+        }
+        .header-name { font-size: 0.76rem; font-weight: 700; color: var(--white); }
+        .header-line-btn {
+            padding: 7px 14px;
+            background: var(--line);
+            color: #fff;
+            border-radius: 999px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            display: flex; align-items: center; gap: 5px;
+            transition: transform 0.2s;
+        }
+        .header-line-btn:active { transform: scale(0.94); }
+        .header-line-btn i { font-size: 0.95rem; }
+
+        /* ══════════════════ HERO ══════════════════ */
+        .hero {
+            padding: 16px 16px 20px;
+            position: relative;
+        }
+        .hero-badge {
+            display: inline-flex; align-items: center; gap: 5px;
+            padding: 5px 12px;
+            background: rgba(230,57,70,0.12);
+            border: 1px solid rgba(230,57,70,0.3);
+            border-radius: 999px;
+            font-size: 0.68rem; font-weight: 700; color: var(--red-bright);
+            margin-bottom: 14px;
+            letter-spacing: 0.04em;
+        }
+        .hero-badge .live { color: var(--red-bright); animation: blink-dot 0.8s infinite; }
+
+        /* ── Banner Image ── */
+        .hero-banner {
+            position: relative;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            margin-bottom: 18px;
+            aspect-ratio: 16/9;
+            background: var(--bg-card);
+        }
+        .hero-banner img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .hero-banner-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(0deg, rgba(8,8,8,0.7) 0%, transparent 50%, rgba(8,8,8,0.2) 100%);
+            pointer-events: none;
+        }
+        .hero-banner-tag {
+            position: absolute;
+            bottom: 10px; right: 10px;
+            background: rgba(0,0,0,0.75);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            border-radius: 6px;
+            padding: 5px 10px;
+            font-size: 0.65rem; font-weight: 700; color: var(--red-bright);
+            display: flex; align-items: center; gap: 5px;
+        }
+
+        /* Hero copy */
+        .hero-title {
+            font-size: 1.5rem; font-weight: 900;
+            line-height: 1.35; color: var(--white);
+            margin-bottom: 6px; letter-spacing: -0.02em;
+            text-align: center;
+        }
+        .hero-title .red { color: var(--red-bright); }
+        .hero-sub {
+            text-align: center;
+            font-size: 0.82rem; color: var(--white-muted);
+            margin-bottom: 16px; line-height: 1.55;
+        }
+
+        /* Pain strips */
+        .pain-list {
+            display: flex; flex-direction: column; gap: 6px;
+            margin-bottom: 16px;
+        }
+        .pain-item {
+            display: flex; align-items: center; gap: 8px;
+            padding: 9px 12px;
+            background: var(--bg-card);
+            border-left: 3px solid var(--red);
+            border-radius: 0 var(--radius) var(--radius) 0;
+            font-size: 0.8rem; color: var(--white-dim);
+            line-height: 1.4;
+        }
+        .pain-item .icon {
+            color: var(--red);
+            font-size: 0.9rem;
+            flex-shrink: 0;
+        }
+
+        /* CTA Button */
+        .cta-btn {
+            display: flex; align-items: center; justify-content: center; gap: 8px;
+            width: 100%; padding: 15px 18px;
+            background: linear-gradient(135deg, #E63946, #C0392B);
+            color: #fff;
+            border: none;
+            border-radius: 999px;
+            font-family: inherit;
+            font-size: 0.95rem; font-weight: 800;
+            cursor: pointer;
+            box-shadow: 0 4px 24px var(--red-glow);
+            transition: all 0.2s;
+            letter-spacing: 0.02em;
+            position: relative;
+            overflow: hidden;
+        }
+        .cta-btn::after {
+            content: '';
+            position: absolute; inset: 0;
+            background: linear-gradient(180deg, rgba(255,255,255,0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        .cta-btn:active { transform: scale(0.95); box-shadow: 0 2px 10px var(--red-glow); }
+        .cta-btn .arr {
+            width: 26px; height: 26px;
+            background: rgba(255,255,255,0.18);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 0.65rem;
+        }
+        .cta-sub {
+            text-align: center;
+            font-size: 0.66rem; color: var(--white-muted);
+            margin-top: 8px;
+        }
+
+        /* ══════════════════ SECTION ══════════════════ */
+        .section { padding: 28px 16px; }
+        .section-label {
+            font-size: 0.64rem; font-weight: 800;
+            color: var(--red-bright); letter-spacing: 0.15em;
+            margin-bottom: 4px; text-align: center;
+        }
+        .section-title {
+            font-size: 1.25rem; font-weight: 900;
+            line-height: 1.35; color: var(--white);
+            margin-bottom: 4px; text-align: center; letter-spacing: -0.01em;
+        }
+        .section-title .hili {
+            background: linear-gradient(transparent 60%, rgba(230,57,70,0.35) 60%);
+            padding: 0 2px;
+        }
+        .section-sub {
+            text-align: center;
+            font-size: 0.8rem; color: var(--white-muted);
+            margin-bottom: 16px;
+        }
+
+        /* Divider */
+        .divider {
+            text-align: center; padding: 0;
+            color: var(--border); font-size: 0.45rem; letter-spacing: 0.5em;
+        }
+
+        /* ══════════════════ PAIN CARDS ══════════════════ */
+        .pain-cards {
+            display: flex; flex-direction: column; gap: 8px;
+            margin-bottom: 16px;
+        }
+        .pain-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 14px;
+            display: flex; gap: 10px;
+        }
+        .pain-card .idx {
+            width: 28px; height: 28px;
+            background: rgba(230,57,70,0.12);
+            color: var(--red-bright);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-weight: 900; font-size: 0.75rem;
+            flex-shrink: 0;
+        }
+        .pain-card .b h4 {
+            font-size: 0.83rem; font-weight: 700;
+            color: var(--white); margin-bottom: 2px;
+        }
+        .pain-card .b p {
+            font-size: 0.74rem; color: var(--white-muted); line-height: 1.45;
+        }
+
+        .pain-shout {
+            text-align: center;
+            font-size: 0.9rem; font-weight: 800;
+            color: var(--white);
+            padding: 14px;
+            background: var(--bg-card2);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            margin-bottom: 0;
+            line-height: 1.5;
+        }
+        .pain-shout .big-red {
+            color: var(--red-bright); font-size: 1.08em;
+        }
+
+        /* ══════════════════ SOLUTION ══════════════════ */
+        .mentor-card {
+            display: flex; gap: 12px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-xl);
+            padding: 16px;
+            margin-bottom: 14px;
+            align-items: center;
+        }
+        .mentor-avatar {
+            width: 56px; height: 56px;
+            border-radius: 50%;
+            flex-shrink: 0;
+            overflow: hidden;
+            border: 2px solid var(--border-light);
+        }
+        .mentor-avatar img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+        }
+        .mentor-info h4 {
+            font-size: 0.87rem; font-weight: 800; color: var(--white);
+        }
+        .mentor-info .tags {
+            font-size: 0.66rem; color: var(--red-bright); font-weight: 700;
+            margin-bottom: 1px;
+        }
+        .mentor-info .quote {
+            font-size: 0.71rem; color: var(--white-muted); line-height: 1.35;
+        }
+
+        .sol-points {
+            display: flex; flex-direction: column; gap: 6px;
+            margin-bottom: 14px;
+        }
+        .sol-point {
+            display: flex; align-items: flex-start; gap: 8px;
+            padding: 12px;
+            background: var(--bg-card);
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+        }
+        .sol-point i { color: var(--red-bright); font-size: 0.95rem; margin-top: 2px; flex-shrink: 0; }
+        .sol-point .b h5 {
+            font-size: 0.8rem; font-weight: 700; color: var(--white); margin-bottom: 1px;
+        }
+        .sol-point .b p {
+            font-size: 0.72rem; color: var(--white-muted); line-height: 1.4;
+        }
+
+        /* ══════════════════ STOCK LIST TEASER ══════════════════ */
+        .stock-teaser {
+            background: var(--bg-card);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-xl);
+            padding: 0;
+            overflow: hidden;
+            margin-bottom: 0;
+        }
+        .stock-teaser-head {
+            background: var(--bg-card2);
+            padding: 11px 14px;
+            display: flex; align-items: center; gap: 8px;
+            border-bottom: 1px solid var(--border);
+        }
+        .stock-teaser-head i { color: var(--red-bright); font-size: 1rem; }
+        .stock-teaser-head span {
+            font-size: 0.8rem; font-weight: 700; color: var(--white);
+        }
+        .stock-teaser-head .badge {
+            margin-left: auto;
+            font-size: 0.63rem; font-weight: 800;
+            background: var(--red); color: #fff;
+            padding: 2px 9px; border-radius: 999px;
+        }
+        .stock-row {
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 11px 14px;
+            border-bottom: 1px solid var(--border);
+        }
+        .stock-row:last-child { border-bottom: none; }
+        .stock-row .s-name { font-size: 0.78rem; font-weight: 700; color: var(--white); }
+        .stock-row .s-code { font-size: 0.64rem; color: var(--white-muted); margin-left: 5px; }
+        .stock-row .s-up {
+            font-size: 0.76rem; font-weight: 800; color: var(--red-bright);
+            display: flex; align-items: center; gap: 3px;
+        }
+        .stock-row .lock {
+            font-size: 0.73rem; color: var(--white-muted);
+        }
+        .stock-teaser-foot {
+            padding: 10px 14px;
+            background: var(--bg-card2);
+            text-align: center;
+            font-size: 0.68rem; color: var(--white-muted);
+            border-top: 1px solid var(--border);
+        }
+
+        /* ══════════════════ PROOF ══════════════════ */
+        .proof-nums {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px;
+            margin-bottom: 12px;
+        }
+        .proof-num {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 14px 5px; text-align: center;
+        }
+        .proof-num .big {
+            font-size: 1.3rem; font-weight: 900;
+            color: var(--red-bright); line-height: 1; margin-bottom: 4px;
+        }
+        .proof-num .lbl {
+            font-size: 0.62rem; color: var(--white-muted); line-height: 1.35;
+        }
+
+        .books-scroll {
+            display: flex; gap: 8px;
+            overflow-x: auto; padding-bottom: 4px;
+            -webkit-overflow-scrolling: touch;
+            scroll-snap-type: x mandatory;
+        }
+        .books-scroll::-webkit-scrollbar { display: none; }
+        .book {
+            min-width: 125px; flex-shrink: 0;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 12px 8px;
+            text-align: center;
+            scroll-snap-align: start;
+        }
+        .book .cover {
+            width: 65px; height: 88px;
+            background: linear-gradient(135deg, #1A1A2E, #2C2C44);
+            margin: 0 auto 6px;
+            border-radius: 3px;
+            display: flex; align-items: center; justify-content: center;
+            color: #fff; font-size: 0.48rem; font-weight: 700;
+            line-height: 1.35; padding: 5px; text-align: center;
+            box-shadow: 2px 4px 12px rgba(0,0,0,0.4);
+        }
+        .book .t {
+            font-size: 0.68rem; font-weight: 700; color: var(--white); line-height: 1.35;
+        }
+        .book .d { font-size: 0.61rem; color: var(--white-muted); margin-top: 1px; }
+
+        /* ══════════════════ PROFILE ══════════════════ */
+        .profile-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-xl);
+            padding: 16px;
+            margin-bottom: 0;
+        }
+        .profile-box h4 {
+            font-size: 0.82rem; font-weight: 800; color: var(--white);
+            margin-bottom: 10px;
+            display: flex; align-items: center; gap: 7px;
+        }
+        .profile-box h4 i { color: var(--red-bright); }
+        .tl { display: flex; flex-direction: column; gap: 6px; }
+        .tl-item { display: flex; gap: 7px; font-size: 0.71rem; color: var(--white-dim); line-height: 1.45; }
+        .tl-item .yr { font-weight: 700; color: var(--red-bright); white-space: nowrap; min-width: 44px; }
+
+        /* ══════════════════ VOICE ══════════════════ */
+        .voice {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 14px;
+            margin-bottom: 8px;
+        }
+        .voice .stars { color: #F1C40F; font-size: 0.76rem; margin-bottom: 5px; }
+        .voice .txt {
+            font-size: 0.78rem; color: var(--white-dim); line-height: 1.5;
+            margin-bottom: 6px;
+        }
+        .voice .attr { font-size: 0.66rem; color: var(--white-muted); }
+
+        /* ══════════════════ LINE OFFER ══════════════════ */
+        .offer-section {
+            padding: 20px 16px 28px;
+        }
+        .offer-box {
+            position: relative;
+            background: linear-gradient(180deg, #121212 0%, #0E0E0E 100%);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-xl);
+            padding: 24px 16px 18px;
+            text-align: center;
+            overflow: hidden;
+        }
+        .offer-box::before {
+            content: '';
+            position: absolute; top: 0; left: 0; right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #E63946, #FF6B6B, #E63946);
+        }
+        .offer-box .corner-tag {
+            position: absolute; top: 14px; left: -30px;
+            background: var(--red);
+            color: #fff;
+            font-size: 0.63rem; font-weight: 900;
+            padding: 3px 38px;
+            transform: rotate(-45deg);
+            letter-spacing: 0.04em;
+            box-shadow: 0 2px 10px var(--red-glow);
+        }
+        .offer-box .line-icon-wrap { margin-bottom: 10px; }
+        .offer-box .line-icon-big {
+            display: inline-flex; align-items: center; justify-content: center;
+            width: 50px; height: 50px;
+            background: var(--line);
+            border-radius: 50%;
+            font-size: 1.6rem;
+            color: #fff;
+            box-shadow: 0 0 24px rgba(6,199,85,0.35);
+            animation: float 3s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%,100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+        .offer-box h3 {
+            font-size: 1.1rem; font-weight: 900;
+            color: var(--white); line-height: 1.4; margin-bottom: 6px;
+        }
+        .offer-box h3 .red { color: var(--red-bright); }
+        .offer-box .desc {
+            font-size: 0.78rem; color: var(--white-muted);
+            margin-bottom: 12px; line-height: 1.5;
+        }
+        .offer-checks {
+            display: flex; flex-direction: column; gap: 5px;
+            text-align: left; margin-bottom: 16px;
+        }
+        .offer-check {
+            display: flex; align-items: center; gap: 8px;
+            font-size: 0.77rem; color: var(--white); font-weight: 600;
+        }
+        .offer-check i { color: var(--green); font-size: 0.85rem; flex-shrink: 0; }
+
+        .offer-urgency {
+            display: inline-flex; align-items: center; gap: 5px;
+            padding: 6px 14px;
+            background: rgba(230,57,70,0.1);
+            border: 1px solid rgba(230,57,70,0.25);
+            border-radius: 999px;
+            font-size: 0.7rem; font-weight: 700; color: var(--red-bright);
+            margin-bottom: 14px;
+        }
+        .offer-urgency i { animation: blink-dot 1s infinite; }
+
+        .line-cta {
+            display: flex; align-items: center; justify-content: center; gap: 8px;
+            width: 100%; padding: 15px 18px;
+            background: var(--line);
+            color: #fff;
+            border: none;
+            border-radius: 999px;
+            font-family: inherit;
+            font-size: 0.95rem; font-weight: 800;
+            cursor: pointer;
+            box-shadow: 0 4px 24px rgba(6,199,85,0.3);
+            transition: all 0.2s;
+            letter-spacing: 0.02em;
+        }
+        .line-cta:active { transform: scale(0.95); }
+        .line-cta i { font-size: 1.3rem; }
+        .line-cta .arr {
+            width: 26px; height: 26px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 0.65rem;
+        }
+
+        .offer-note {
+            font-size: 0.64rem; color: var(--white-muted);
+            margin-top: 8px;
+        }
+
+        /* ══════════════════ STICKY ══════════════════ */
+        .sticky-bar {
+            position: fixed;
+            bottom: 0; left: 50%;
+            transform: translateX(-50%);
+            width: 100%; max-width: 500px;
+            background: rgba(8,8,8,0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            padding: 8px 14px;
+            border-top: 1px solid var(--border);
+            z-index: 100;
+        }
+        .sticky-bar .s-cta {
+            display: flex; align-items: center; justify-content: center; gap: 8px;
+            width: 100%; padding: 13px;
+            background: var(--line);
+            color: #fff;
+            border: none;
+            border-radius: 999px;
+            font-family: inherit;
+            font-size: 0.85rem; font-weight: 800;
+            cursor: pointer;
+            box-shadow: 0 2px 18px rgba(6,199,85,0.25);
+            transition: transform 0.2s;
+        }
+        .sticky-bar .s-cta:active { transform: scale(0.96); }
+        .sticky-spacer { height: 64px; }
+
+        /* ══════════════════ FOOTER ══════════════════ */
+        .footer {
+            padding: 18px 16px 28px;
+            text-align: center;
+            font-size: 0.64rem; color: var(--white-muted);
+            line-height: 1.7;
+            border-top: 1px solid var(--border);
+        }
+        .footer a { color: var(--red-bright); }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <!-- ═══ FLASH BAR ═══ -->
+    <div class="flash-bar">
+        <span class="dot"></span>
+        【緊急】来週の急騰候補銘柄リストをLINEで無料配信中
+        <span class="dot"></span>
+    </div>
+
+    <!-- ═══ HEADER ═══ -->
+    <header class="header">
+        <div class="header-l">
+            <div class="header-logo">📈</div>
+            <span class="header-name">榊原正幸 公式LINE</span>
+        </div>
+        <a href="#offer" class="header-line-btn" onclick="k2()">
+            <i class="fa-brands fa-line"></i> 無料登録
+        </a>
+    </header>
+
+    <!-- ═══════════════════ HERO ═══════════════════ -->
+    <section class="hero">
+        <div class="hero-badge">
+            🔴 <span class="live">LIVE</span> 次の上昇銘柄を準備中…
+        </div>
+
+        <!-- Banner Image -->
+        <div class="hero-banner">
+            <img src="img/4.jpg"
+                 alt="株式市場" loading="eager"
+                 onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg, #1a1a2e, #16213e, #0f3460)';this.parentElement.innerHTML+='<div style=position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#fff;font-size:2rem>📈</div>';">
+            <div class="hero-banner-overlay"></div>
+            <div class="hero-banner-tag">
+                <i class="fa-solid fa-arrow-trend-up"></i> 直近1ヶ月の市場動向
+            </div>
+        </div>
+
+        <h1 class="hero-title">
+            来週<span class="red">上がる株</span>、<br>
+            知りたくないですか？
+        </h1>
+        <p class="hero-sub">
+            元大学教授・会計学博士が決算書から発掘した<br>
+            「これから急騰する割安銘柄」を<br>
+            毎週LINEで無料配信しています。
+        </p>
+
+        <!-- Pain points -->
+        <div class="pain-list">
+            <div class="pain-item">
+                <span class="icon"><i class="fa-solid fa-circle-xmark"></i></span>
+                <span>上がる株の情報はいつも「買った後」に届く</span>
+            </div>
+            <div class="pain-item">
+                <span class="icon"><i class="fa-solid fa-circle-xmark"></i></span>
+                <span>決算書？チャート？何を見れば上がる株がわかるの？</span>
+            </div>
+            <div class="pain-item">
+                <span class="icon"><i class="fa-solid fa-circle-xmark"></i></span>
+                <span>結局インフルエンサーの投稿に振り回されて損ばかり</span>
+            </div>
+        </div>
+
+        <!-- CTA -->
+        <a href="#offer" class="cta-btn" onclick="k2()">
+            <i class="fa-brands fa-line"></i>
+            LINEで「上がる株リスト」を受け取る
+            <span class="arr"><i class="fa-solid fa-chevron-down"></i></span>
+        </a>
+        <p class="cta-sub">登録は10秒 ｜ 完全無料 ｜ ブロックはいつでもOK</p>
+    </section>
+
+    <div class="divider">◆</div>
+
+    <!-- ═══════════════════ PAIN ═══════════════════ -->
+    <section class="section">
+        <div class="section-label">WHY YOU LOSE</div>
+        <h2 class="section-title">
+            あなたが株で<span class="hili">勝てない理由</span>は<br>たった1つ
+        </h2>
+        <p class="section-sub">
+            「情報を持っている人」と「持っていない人」の差。<br>
+            プロが決算書から発掘する割安銘柄を知らないだけです。
+        </p>
+
+        <div class="pain-cards">
+            <div class="pain-card">
+                <div class="idx">1</div>
+                <div class="b">
+                    <h4>「上がる前に買えなかった」</h4>
+                    <p>急騰したあとのニュースを見て、毎回「もっと早く知っていれば…」と後悔していませんか？</p>
+                </div>
+            </div>
+            <div class="pain-card">
+                <div class="idx">2</div>
+                <div class="b">
+                    <h4>「SNSの情報が当たらない」</h4>
+                    <p>インフルエンサーの「この株が来る！」に飛びついて、結局高値掴み。根拠のない情報に振り回されていませんか？</p>
+                </div>
+            </div>
+            <div class="pain-card">
+                <div class="idx">3</div>
+                <div class="b">
+                    <h4>「決算書の読み方がわからない」</h4>
+                    <p>PER？PBR？ROE？用語は聞いたことがあっても、実際にどう使えば上がる株を見つけられるのか知らない。</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="pain-shout">
+            もし<span class="big-red">来週上がる株のリスト</span>が<br>
+            事前に手に入るとしたら？
+        </div>
+    </section>
+
+    <div class="divider">◆ ◆</div>
+
+    <!-- ═══════════════════ SOLUTION ═══════════════════ -->
+    <section class="section">
+        <div class="section-label">SOLUTION</div>
+        <h2 class="section-title">
+            <span class="hili">決算書で見抜く</span><br>
+            プロの銘柄選定をあなたに
+        </h2>
+        <p class="section-sub">
+            元大学教授・会計学博士の榊原正幸が、<br>
+            40年の研究で培った「数字」の知識で、<br>
+            これから上がる銘柄だけを厳選します。
+        </p>
+
+        <!-- Mentor -->
+        <div class="mentor-card">
+            <div class="mentor-avatar">
+                <img src="img/1.jpg"
+                     alt="榊原 正幸" loading="lazy"
+                     onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg, #1a1a2e, #2d2d44)';this.parentElement.innerHTML+='<i class=fa-solid fa-user-tie style=font-size:1.4rem;color:#888></i>';">
+            </div>
+            <div class="mentor-info">
+                <h4>榊原 正幸</h4>
+                <div class="tags">会計学博士 ｜ 税理士 ｜ 元・大学教授</div>
+                <div class="quote">「株で勝つには、感情ではなく数字を見ることです。」</div>
+            </div>
+        </div>
+
+        <div class="sol-points">
+            <div class="sol-point">
+                <i class="fa-solid fa-magnifying-glass-chart"></i>
+                <div class="b">
+                    <h5>決算書で「割安すぎる株」を発掘</h5>
+                    <p>PER・PBR・ROE——会計学博士が決算書を徹底分析。市場がまだ気づいていない「本来の価値より安い株」だけをピックアップ。</p>
+                </div>
+            </div>
+            <div class="sol-point">
+                <i class="fa-solid fa-arrow-trend-up"></i>
+                <div class="b">
+                    <h5>業績が伸びている会社だけに絞り込む</h5>
+                    <p>売上成長率、営業利益率——数字でウソのない会社だけを選び抜くから、安心して株の上昇を待てます。</p>
+                </div>
+            </div>
+            <div class="sol-point">
+                <i class="fa-solid fa-bolt"></i>
+                <div class="b">
+                    <h5>「来週上がる株」を毎週LINEでお届け</h5>
+                    <p>あなたがやることはLINEをチェックするだけ。難しい分析は榊原がすべて代わりにやります。</p>
+                </div>
+            </div>
+        </div>
+ 
+    </section>
+
+    <div class="divider">◆ ◆ ◆</div>
+
+    <!-- ═══════════════════ PROOF ═══════════════════ -->
+    <section class="section">
+        <div class="section-label">PROOF</div>
+        <h2 class="section-title">
+            この人だから<br><span class="hili">信頼できる</span>
+        </h2>
+        <p class="section-sub">
+            40年の研究実績と、10万部を超える著書がその証拠です。
+        </p>
+
+        <div class="proof-nums">
+            <div class="proof-num">
+                <div class="big">40年</div>
+                <div class="lbl">会計・財務<br>研究歴</div>
+            </div>
+            <div class="proof-num">
+                <div class="big">10万+</div>
+                <div class="lbl">累計著書<br>発行部数</div>
+            </div>
+            <div class="proof-num">
+                <div class="big">2万+</div>
+                <div class="lbl">受講生<br>読者数</div>
+            </div>
+        </div>
+ 
+    </section>
+
+    <!-- ═══════════════════ PROFILE ═══════════════════ -->
+    <section class="section" style="padding-top:0;">
+        <div class="profile-box">
+            <h4><i class="fa-solid fa-graduation-cap"></i> 榊原 正幸 プロフィール</h4>
+            <div class="tl">
+                <div class="tl-item"><span class="yr">1961年</span><span>名古屋市生まれ。名古屋大学経済学部 → 大学院経済学研究科 → 同大学助手</span></div>
+                <div class="tl-item"><span class="yr">1993年</span><span>日本学術振興会 特別研究員（PD）</span></div>
+                <div class="tl-item"><span class="yr">留学</span><span>英国レディング大学に入学</span></div>
+                <div class="tl-item"><span class="yr">1997年</span><span>東北大学 経済学部 助教授</span></div>
+                <div class="tl-item"><span class="yr">2000年</span><span><strong>日税研究賞</strong> 受賞</span></div>
+                <div class="tl-item"><span class="yr">2001年</span><span>英国レディング大学 <strong>博士号（PhD）</strong> 授与 · 税理士資格取得</span></div>
+                <div class="tl-item"><span class="yr">2003年</span><span>東北大学 大学院経済学研究科 教授</span></div>
+                <div class="tl-item"><span class="yr">2004年</span><span>青山学院大学 大学院国際マネジメント研究科 教授</span></div>
+                <div class="tl-item"><span class="yr">2021年</span><span>退任。東京・青山を拠点にファイナンシャル教育の普及活動を継続中</span></div>
+            </div>
+        </div>
+    </section>
+
+    <div class="divider">◆ ◆</div>
+
+    <!-- ═══════════════════ VOICE ═══════════════════ -->
+    <section class="section" style="padding-top:0;">
+        <div class="section-label">VOICE</div>
+        <h2 class="section-title">
+            LINE配信を<span class="hili">実践した人の声</span>
+        </h2>
+
+        <div class="voice">
+            <div class="stars">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <div class="txt">
+                「榊原先生のLINEで紹介された銘柄をチェックして、決算書の見方を勉強しながら少しずつ買い始めました。先月は+18.5%。ただの推奨じゃなくて、なぜ上がるかの"根拠"が毎回書いてあるのが信用できます。」
+            </div>
+            <div class="attr">40代・会社員 ｜ 投資歴2年 → 年間利回り+18%達成</div>
+        </div>
+        <div class="voice">
+            <div class="stars">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <div class="txt">
+                「今まで高い情報商材をいくつも買ってきましたが、榊原先生の無料LINEが一番使えます。アカデミックな分析で、株の『なぜ上がるのか』がロジカルに理解できる。今では自分でも決算書を読めるようになりました。」
+            </div>
+            <div class="attr">30代・自営業 ｜ 資産運用額 3,000万円突破</div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════ LINE OFFER ═══════════════════ -->
+    <section class="offer-section" id="offer">
+        <div class="offer-box">
+            <div class="corner-tag">無料</div>
+            <div class="line-icon-wrap">
+                <div class="line-icon-big">
+                    <i class="fa-brands fa-line"></i>
+                </div>
+            </div>
+            <h3>
+                LINEで<br><span class="red">「来週上がる株リスト」</span><br>
+                を受け取る
+            </h3>
+            <p class="desc">
+                会計学博士・榊原正幸が<br>
+                決算書分析で見つけた急騰候補銘柄を<br>
+                毎週LINEでお届けします。
+            </p>
+            <div class="offer-checks">
+                <div class="offer-check">
+                    <i class="fa-solid fa-circle-check"></i> 毎週金曜：来週上がる注目銘柄リスト
+                </div>
+                <div class="offer-check">
+                    <i class="fa-solid fa-circle-check"></i> 決算書のプロが教える「割安株」の見分け方
+                </div>
+                <div class="offer-check">
+                    <i class="fa-solid fa-circle-check"></i> 絶対に買ってはいけない危険銘柄アラート
+                </div>
+                <div class="offer-check">
+                    <i class="fa-solid fa-circle-check"></i> 榊原のマーケット速報（重要決算・急騰サイン）
+                </div>
+            </div>
+            <div class="offer-urgency">
+                <i class="fa-solid fa-hourglass-half"></i>
+                今週の配信は 今夜23:59 締切
+            </div>
+
+            <!-- LINE CTA -->
+            <a href="#" class="line-cta" onclick="k2()">
+                <i class="fa-brands fa-line"></i>
+                LINEで無料登録する
+                <span class="arr"><i class="fa-solid fa-chevron-right"></i></span>
+            </a>
+            <p class="offer-note">
+                <i class="fa-solid fa-lock"></i> 個人情報は不要 ｜ ブロックはワンタップ ｜ 完全無料
+            </p>
+        </div>
+    </section>
+
+    <!-- ═══════════════════ FINAL MESSAGE ═══════════════════ -->
+    <section class="section" style="padding-top:0; text-align:center;">
+        <h3 style="font-size:1.1rem;font-weight:900;color:var(--white);margin-bottom:6px;line-height:1.45;">
+            株は<span style="color:var(--red-bright);">情報戦</span>です。
+        </h3>
+        <p style="font-size:0.8rem;color:var(--white-muted);margin-bottom:14px;line-height:1.55;">
+            来週上がる株を事前に知っている人と、<br>
+            上がった後のニュースを見てから買う人。<br><br>
+            あなたは、どちらになりたいですか？<br><br>
+            まずはLINEを登録して、<br>
+            次の注目銘柄をのぞいてみてください。
+        </p>
+        <a href="#offer" class="cta-btn" onclick="k2()">
+            <i class="fa-brands fa-line"></i>
+            いますぐLINEで無料登録
+            <span class="arr"><i class="fa-solid fa-chevron-down"></i></span>
+        </a>
+    </section>
+
+    <!-- ═══ STICKY BAR ═══ -->
+    <div class="sticky-bar">
+        <a href="#offer" class="s-cta" onclick="k2()">
+            <i class="fa-brands fa-line"></i>
+            LINEで「上がる株リスト」を無料で受け取る
+        </a>
+    </div>
+    <div class="sticky-spacer"></div>
+
+    <!-- ═══ FOOTER ═══ -->
+    <footer class="footer">
+        <p>本サイトは榊原正幸の投資教育活動の一環として運営されています。</p>
+        <p>投資にはリスクが伴います。最終的な投資判断はご自身の責任で行ってください。<br>掲載されている情報は将来の成果を保証するものではありません。</p>
+        <p style="margin-top:4px;">
+            <a href="#">プライバシーポリシー</a> ｜ <a href="#">特定商取引法に基づく表記</a> ｜ <a href="#">お問い合わせ</a>
+        </p>
+        <p style="margin-top:4px;color:#555;">© 2024 榊原正幸 投資ゼミナール</p>
+    </footer>
+
+</div>
+
+</body>
+</html>
